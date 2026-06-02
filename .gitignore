@@ -1,0 +1,32 @@
+# Personal data — never commit these
+jobs.xlsx
+jobs-pending-merge-*.xlsx
+logs/
+versions/
+digest-*.md
+
+# Resume materials (each user adds these in their own clone)
+profile.md
+skills.md
+experiences/
+master/
+research/
+
+# A user's filled-in LaunchAgent plist (the .template stays committed)
+launchd/daily-sourcing.plist
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# AppleScript intermediate files written by the spawner
+*.applescript
+
+# macOS
+.DS_Store
+
+# Editor cruft
+*.swp
+.idea/
+.vscode/

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  LaunchAgent template — fires the daily-sourcing run at 12:00 local time.
+
+  BEFORE INSTALLING, replace the four placeholders below:
+    {{USERNAME}}       your macOS short username (run `whoami` to get it)
+    {{HOME}}           your home dir, e.g. /Users/{{USERNAME}}
+    {{REPO_PATH}}      absolute path to your clone, e.g. /Users/{{USERNAME}}/Desktop/claude-job-pipeline
+
+  Then symlink into LaunchAgents and load (see README.md §Install):
+    ln -sf {{REPO_PATH}}/launchd/daily-sourcing.plist ~/Library/LaunchAgents/com.{{USERNAME}}.daily-sourcing.plist
+    launchctl load ~/Library/LaunchAgents/com.{{USERNAME}}.daily-sourcing.plist
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.{{USERNAME}}.daily-sourcing</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>{{REPO_PATH}}/scripts/launch_daily_sourcing.sh</string>
+    </array>
+
+    <!-- Fires daily at 12:00 local time. If the Mac is asleep, fires on wake. -->
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>12</integer>
+        <key>Minute</key>
+        <integer>0</integer>
+    </dict>
+
+    <key>RunAtLoad</key>
+    <false/>
+
+    <key>StandardOutPath</key>
+    <string>{{REPO_PATH}}/logs/launchd-stdout.log</string>
+    <key>StandardErrorPath</key>
+    <string>{{REPO_PATH}}/logs/launchd-stderr.log</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>{{HOME}}/.local/bin:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+        <key>HOME</key>
+        <string>{{HOME}}</string>
+    </dict>
+
+    <key>WorkingDirectory</key>
+    <string>{{REPO_PATH}}</string>
+</dict>
+</plist>

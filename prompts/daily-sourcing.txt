@@ -1,0 +1,14 @@
+Read ./job-sourcing-spec.md and execute it now.
+
+Working directory: the current directory (the cloned repo root).
+
+Follow the spec exactly:
+- All four sources (SimplifyJobs, jobright-ai repo, jobright minisite, LinkedIn fresh search)
+- 0-1 day freshness HARD
+- Prestige bar per the spec (customize it for your target tier)
+- Append new rows to ./jobs.xlsx (sheet "jobs"), dedupe by canonical apply URL
+- Soft cap ~10 new rows, hard cap 20
+- After writing the sheet, send the digest email per §6 of the spec (Claude in Chrome → Gmail web compose, subject: "Daily jobs digest — YYYY-MM-DD — N new")
+- If a source is stale or blocked, log it and continue — do not fail the whole run
+
+When finished, print a one-line summary: "DONE — added N rows, skipped M dupes, sources OK: [...]". Then exit.
