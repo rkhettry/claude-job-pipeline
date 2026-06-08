@@ -1,0 +1,18 @@
+Read <REPO_ROOT>/automation/verify-date-spec.md and execute it now.
+
+Working directory: <REPO_ROOT>
+
+Inputs:
+- JOB_ID = {JOB_ID}
+
+Follow the spec exactly. The goal: verify the ACTUAL posted date by navigating to the direct source ATS page (greenhouse / lever / ashby / workday / company careers page), NOT the aggregator (jobright / SimplifyJobs README / HN comment).
+
+Use Chrome MCP for navigation. Use Bash + python + openpyxl to write the result to the `posted_date_verified` column in <REPO_ROOT>/automation/jobs.xlsx (create the column if missing).
+
+Output values:
+- YYYY-MM-DD if you found a real posted date with high confidence
+- "unknown" if you tried everything and couldn't find one
+
+DO NOT fabricate a date. "unknown" is the correct answer when you can't find it.
+
+When done, print the one-line DONE summary from §5 and exit.

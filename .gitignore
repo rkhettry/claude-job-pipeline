@@ -4,12 +4,19 @@ jobs-pending-merge-*.xlsx
 logs/
 versions/
 digest-*.md
+outreach/*.json
 
-# Resume materials (each user adds these in their own clone)
+# Per-user config — buyer creates from .example.yaml
+config/user.yaml
+
+# Per-user resume content — buyer creates from .example.tex
+master/*.tex
+!master/*.example.tex
+
+# Resume materials each user adds in their own clone
 profile.md
 skills.md
 experiences/
-master/
 research/
 
 # A user's filled-in LaunchAgent plist (the .template stays committed)
@@ -22,6 +29,9 @@ __pycache__/
 
 # AppleScript intermediate files written by the spawner
 *.applescript
+
+# Backup directories
+*-backup-*/
 
 # macOS
 .DS_Store

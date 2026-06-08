@@ -1,14 +1,22 @@
-Read ./job-sourcing-spec.md and execute it now.
+Read <REPO_ROOT>/automation/job-sourcing-spec.md and execute it now.
 
-Working directory: the current directory (the cloned repo root).
+**FIRST**: read <REPO_ROOT>/automation/config/user.yaml. That file contains the user's identity, job preferences, prestige bar (tier-A list, hard-avoid list, comp floor), and digest email destination. Use those values throughout this run. The job-sourcing-spec.md inline values are illustrative defaults for the template owner; the runtime values come from config/user.yaml.
+
+If config/user.yaml is missing, halt with `ERROR — missing config/user.yaml; cp config/user.example.yaml config/user.yaml and fill in your values`.
+
+Working directory: <REPO_ROOT>
 
 Follow the spec exactly:
-- All four sources (SimplifyJobs, jobright-ai repo, jobright minisite, LinkedIn fresh search)
-- 0-1 day freshness HARD
-- Prestige bar per the spec (customize it for your target tier)
-- Append new rows to ./jobs.xlsx (sheet "jobs"), dedupe by canonical apply URL
-- Soft cap ~10 new rows, hard cap 20
-- After writing the sheet, send the digest email per §6 of the spec (Claude in Chrome → Gmail web compose, subject: "Daily jobs digest — YYYY-MM-DD — N new")
-- If a source is stale or blocked, log it and continue — do not fail the whole run
+- FOUR sources: SimplifyJobs (GitHub), jobright-ai repo (GitHub), jobright minisite at newgrad-jobs (Chrome MCP, WITH "Is New Grad = Yes" filter applied), and Hacker News "Who is hiring?" monthly thread (§2.6, via HN Algolia API — no Chrome needed)
+- LinkedIn is DISABLED (§2.4) — skip it entirely
+- 0-3 day freshness window for this run
+- Use the `job_preferences.level` from config (default: new-grad). Drop anything requiring more than `job_preferences.drop_if_requires_years_experience` years post-grad experience.
+- Use `job_preferences.high_priority_role_types` from config to know which roles to surface aggressively (e.g. Palantir FDE if FDE is in the list).
+- MANDATORY JD verification per §5 step 5: open each candidate's apply_url, read the JD, drop if requires years of post-grad experience beyond the config threshold, or if specialization is beyond the user's level. For FDE roles, ALSO verify the role is engineering-heavy (writes production code, owns deployments) and not pre-sales / sales-engineer flavored.
+- Prestige bar from config: use `prestige.tier_a_companies`, `prestige.wedge_categories`, `prestige.hard_avoid`, and `prestige.current_offers_floor`.
+- Append new rows to <REPO_ROOT>/automation/jobs.xlsx (sheet "jobs"), dedupe by canonical apply URL.
+- Soft cap ~10 new rows, hard cap 20.
+- After writing the sheet, send the digest email to `digest_email` (from config) via Claude in Chrome → Gmail web compose. Subject: "Daily jobs digest — YYYY-MM-DD — N new". Include JD-verification counters in the body.
+- If a source is stale or blocked, log it and continue — do not fail the whole run.
 
-When finished, print a one-line summary: "DONE — added N rows, skipped M dupes, sources OK: [...]". Then exit.
+When finished, print a one-line summary: "DONE — added N rows, skipped M dupes, jd_verified=N, jd_dropped_1plus_yrs=N, jd_dropped_specialist=N, sources OK: [...]". Then exit.

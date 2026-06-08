@@ -1,27 +1,24 @@
 #!/bin/bash
 # launch_daily_sourcing.sh
-# Opens Terminal.app and runs Claude Code with the daily-sourcing prompt.
-# Output is mirrored to a timestamped log in <repo>/logs/.
+# Opens iTerm 2 (Terminal.app fallback) in ~/resume and runs Claude Code with
+# the daily-sourcing prompt. Output is mirrored to a timestamped log.
 #
-# Invoked by ~/Library/LaunchAgents/com.<you>.daily-sourcing.plist at noon
-# local time, or manually for testing:
-#   bash <repo>/scripts/launch_daily_sourcing.sh
+# Invoked by ~/Library/LaunchAgents/com.raj.daily-sourcing.plist at noon PT,
+# or manually for testing: bash ~/resume/automation/scripts/launch_daily_sourcing.sh
 
 set -u
 
-# Resolve paths relative to this script — no hardcoded user paths.
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(dirname "$SCRIPT_DIR")"
-PROMPT_FILE="$REPO_ROOT/prompts/daily-sourcing.txt"
-LOGS_DIR="$REPO_ROOT/logs"
+RESUME_ROOT="${RESUME_ROOT:-$HOME/<your-repo>}"
+AUTOMATION_DIR="$RESUME_ROOT/automation"
+PROMPT_FILE="$AUTOMATION_DIR/prompts/daily-sourcing.txt"
+LOGS_DIR="$AUTOMATION_DIR/logs"
 mkdir -p "$LOGS_DIR"
 
 TIMESTAMP="$(date +%Y%m%d-%H%M%S)"
 LOG_FILE="$LOGS_DIR/sourcing-$TIMESTAMP.log"
 
 # Make sure we can find `claude` even when launchd gives us a minimal PATH.
-# The Claude Code CLI installs to ~/.local/bin by default on macOS.
-export PATH="$HOME/.local/bin:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:$PATH"
+export PATH="~/.local/bin:/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin:$PATH"
 
 if [ ! -f "$PROMPT_FILE" ]; then
   echo "FATAL: prompt file missing at $PROMPT_FILE" | tee "$LOG_FILE" >&2
@@ -39,9 +36,22 @@ if [ -n "$LINGERING" ]; then
   pkill -9 -f 'claude.*--chrome.*job-sourcing-spec.md' 2>/dev/null || true
 fi
 
-# Build the command that runs *inside* the new Terminal window.
+# Per-run close helper — sets a unique window title via OSC 0 escape, then
+# closes that exact Terminal window once claude exits. Lives next to the log.
+WINDOW_TITLE="claude-sourcing-$TIMESTAMP"
+CLOSE_SCRIPT="$LOGS_DIR/close-$TIMESTAMP.sh"
+cat > "$CLOSE_SCRIPT" <<EOSCRIPT
+#!/bin/bash
+osascript -e 'tell application "Terminal" to close (every window whose name contains "$WINDOW_TITLE") saving no' 2>/dev/null
+EOSCRIPT
+chmod +x "$CLOSE_SCRIPT"
+
+# Build the command that runs *inside* the new terminal window.
 # `script` mirrors the interactive session to the log file so you can review later.
-INNER_CMD="cd \"$REPO_ROOT\" && script -q \"$LOG_FILE\" claude --dangerously-skip-permissions --chrome \"\$(cat \"$PROMPT_FILE\")\""
+# `claude -p` would run headless; we use interactive so you can monitor and interject.
+# After claude exits, the close helper runs in the background and the shell exits —
+# Terminal disposes of the window automatically.
+INNER_CMD="printf '\\033]0;$WINDOW_TITLE\\007'; cd \"$RESUME_ROOT\" && claude -p --dangerously-skip-permissions --chrome \"\$(cat \"$PROMPT_FILE\")\" 2>&1 | tee \"$LOG_FILE\"; bash \"$CLOSE_SCRIPT\" & sleep 1; exit"
 
 # AppleScript helper: escape backslashes, quotes, newlines for embedding.
 applescript_escape() {
@@ -50,7 +60,7 @@ applescript_escape() {
 
 CMD_ESC="$(applescript_escape "$INNER_CMD")"
 
-# Use macOS native Terminal.app for reliability across user configs.
+# Use macOS native Terminal.app (Raj has a weird iTerm config — Terminal is more reliable).
 osascript <<EOF 2>/dev/null
 tell application "Terminal"
   activate
@@ -58,9 +68,9 @@ tell application "Terminal"
 end tell
 EOF
 
-# Fallback: if osascript failed (e.g. no GUI session), run headless to log.
+# Fallback: if osascript failed entirely (e.g. no GUI session), run headless to log.
 if [ $? -ne 0 ]; then
   echo "[launcher] osascript failed — falling back to headless run" | tee -a "$LOG_FILE"
-  cd "$REPO_ROOT"
+  cd "$RESUME_ROOT"
   claude -p "$(cat "$PROMPT_FILE")" --dangerously-skip-permissions --chrome >> "$LOG_FILE" 2>&1
 fi

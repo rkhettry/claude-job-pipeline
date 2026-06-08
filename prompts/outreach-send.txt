@@ -1,0 +1,23 @@
+Read <REPO_ROOT>/automation/outreach-sender-spec.md and execute it now.
+
+Working directory: <REPO_ROOT>
+
+Inputs:
+- JOB_ID = {JOB_ID}
+
+Sidecar JSON at <REPO_ROOT>/automation/outreach/{JOB_ID}.json — read it, send to every lead where approved==true AND send_status==pending (or failed, for retries).
+
+Use Chrome MCP for all LinkedIn navigation (Raj is authenticated). Per-lead flow:
+- 1st-degree → direct DM via Message button
+- 2nd-degree → Connect → Add a note → paste message → Send invitation
+- 3rd+ degree → skip (mark send_status=skipped)
+
+CRITICAL RULES:
+- 45-90s random jitter between EVERY send (success or failure)
+- NEVER send blank connection requests — always add the note
+- If LinkedIn says "you've reached your monthly limit for personalized invitations" → mark that lead and ALL subsequent leads in this batch as limit_reached / skipped, save, continue (don't try to send blank)
+- NEVER use InMail credits — stay on the free message tab
+- If 3 consecutive failures → halt batch, mark remaining as skipped, exit
+- NEVER edit a lead's message at send-time (user finalized it in the UI)
+
+When done, print the one-line DONE summary from §4 and exit.

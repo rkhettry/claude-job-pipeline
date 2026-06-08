@@ -1,0 +1,25 @@
+Read <REPO_ROOT>/automation/outreach-lead-finder-spec.md and execute it now.
+
+Working directory: <REPO_ROOT>
+
+Inputs:
+- JOB_ID = {JOB_ID}
+- LEAD_COUNT = {LEAD_COUNT}
+- APPEND = {APPEND}
+
+Then read <REPO_ROOT>/automation/outreach/message-templates.md and use those three templates (recruiter, founder, engineer) verbatim as the source-of-truth defaults to seed into the sidecar JSON's `templates` field. Do not modify the template text. Hydrate per-lead messages by substituting the placeholders defined in that file.
+
+Follow the spec exactly. Use Chrome MCP for all LinkedIn navigation (Raj is already authenticated). Use Bash + python + openpyxl to read jobs.xlsx and write the sidecar JSON at <REPO_ROOT>/automation/outreach/{JOB_ID}.json.
+
+Priority order: recruiters (existing 1st-degree connections first, then 2nd-degree search), then founders (only if startup AND short on recruiters), then engineers (fallback).
+
+Default approvals per §5:
+- 1st-degree recruiters: approved=true
+- 3rd+ degree: approved=false
+- everything else: approved=null (user reviews)
+
+Hard rules:
+- Do NOT send any messages or connection requests. This is find-only.
+- No em dashes or double dashes in any message text Claude writes. Use commas or periods.
+
+When done, print the one-line DONE summary from §7 and exit.

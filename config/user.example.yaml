@@ -1,0 +1,113 @@
+# =============================================================================
+# user.yaml — REQUIRED. Copy this file to user.yaml and fill in YOUR values.
+#
+#   cp config/user.example.yaml config/user.yaml
+#   $EDITOR config/user.yaml
+#
+# Every spec (job-sourcing, resume-tailoring, outreach, verify-date) reads
+# user.yaml first. Without it, the pipeline won't work for YOU — it'll still
+# have the template owner's identity / preferences baked in.
+# =============================================================================
+
+# ---------- Identity ----------
+# Used in: resume header, output PDF filenames, outreach message templates,
+# digest email signature.
+identity:
+  full_name: "Your Full Name"                      # Appears on every tailored resume
+  email: "you@example.com"                         # Used in resume header + digest
+  phone: "+1 (555) 123-4567"                       # Optional but recommended
+  linkedin_url: "https://linkedin.com/in/your-handle"
+  github_url: "https://github.com/your-handle"
+  us_work_authorized: true                         # false → sourcing filters in jobs that say "sponsorship available"
+
+# ---------- Job search preferences ----------
+# Used by: job-sourcing-spec.md to filter inbound jobs.
+job_preferences:
+  level: "new-grad"                                # "new-grad" / "internship" / "early-career" / "senior"
+  target_role_types:                               # Titles you'd actually apply to
+    - "Software Engineer"
+    - "ML Engineer"
+    # - "Data Engineer"
+    # - "Frontend Engineer"
+    # ... add or remove as needed
+  high_priority_role_types:                        # Roles you REALLY want; sourcer promotes these
+    - "Forward Deployed Engineer"
+    # - "Solutions Engineer (eng-heavy only)"
+    # - "Member of Technical Staff"
+  excluded_role_levels:                            # Sourcer drops anything with these in the title
+    - "senior"
+    - "staff"
+    - "principal"
+    - "manager"
+    - "lead"
+    - "director"
+  preferred_locations:
+    primary:                                       # Top-priority cities; sourcer favors these
+      - "Bay Area"
+      - "San Francisco"
+    secondary:                                     # OK if company is top-tier
+      - "NYC"
+      - "Seattle"
+      - "Remote (US)"
+    remote_ok: true
+  comp_floor_k: 130                                # Drop listings with comp below this. If listing comp is unknown, only include tier-A.
+  drop_if_requires_years_experience: 1             # Drop jobs requiring >=N years post-grad full-time experience
+
+# ---------- Prestige bar ----------
+# Used by: job-sourcing-spec.md to filter by company quality.
+prestige:
+  # Tier A: companies you'd auto-take an interview at. Customize to YOUR list.
+  tier_a_companies:
+    - "Anthropic"
+    - "OpenAI"
+    - "Stripe"
+    # - "(add your dream companies)"
+
+  # Wedge categories: AI verticals your background fits. Helps sourcer find Series A/B startups in your space.
+  wedge_categories:
+    - "agentic AI"
+    - "dev tools"
+    # - "(add areas you actually have experience in)"
+
+  # Hard avoid: companies you would NEVER work at. Sourcer drops these silently.
+  hard_avoid: []
+    # - "(company name)"
+
+  # Reference floor — your "anything must beat this" bar.
+  # Used as a comparison point during prestige decisions, NOT auto-include.
+  current_offers_floor:
+    - "Your best current offer (e.g. 'Generic F500 SWE new-grad')"
+
+# ---------- Resume content settings ----------
+# Used by: resume-tailoring-spec.md.
+resume:
+  # Output PDF/TeX/MD filename pattern. {company} gets replaced per-tailor.
+  # Example: filename_pattern = "Jane Doe SWE {company}"
+  #          → "Jane Doe SWE Anthropic.pdf"
+  filename_pattern: "Your Full Name SWE {company}"
+
+  # Your "killer metrics" — quantified wins that should be preserved across every
+  # tailored version unless the role genuinely doesn't care. Be honest, no inflated numbers.
+  killer_metrics:
+    - "(your strongest quantified win, e.g. 'reduced query latency by 80%')"
+    - "(second-strongest quantified win)"
+    # ... add 5-10 total
+
+  # Hard facts about you that Claude can use as-is, never needs to invent.
+  hard_facts:
+    education: "B.S. in <Major>, <University>"
+    gpa: 3.5                                       # optional; omit if not strong
+    graduation: "Expected May 2026"
+    dean_list: false
+
+  # Projects always included on the resume.
+  projects_always_include:
+    - "(your best personal/side project)"
+
+  # Organizations always included (proves leadership, ~2 lines).
+  organizations_always_include: []
+    # - "(student org, role, achievement)"
+
+# ---------- Daily digest ----------
+# Where the daily-sourcing pipeline emails the new-jobs summary at noon PT.
+digest_email: "you@example.com"
