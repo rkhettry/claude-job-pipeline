@@ -11,7 +11,7 @@ Run the outreach lead-finder for the job_id and lead count the user provided in 
 - LEAD_COUNT — second integer (default 10)
 - APPEND — false unless the user explicitly says "append" in $ARGUMENTS
 
-Use Chrome MCP (Raj is authenticated on LinkedIn). Write the sidecar JSON at `<REPO_ROOT>/automation/outreach/<JOB_ID>.json`.
+Use Chrome MCP (the user is authenticated on LinkedIn). Write the sidecar JSON at `<REPO_ROOT>/automation/outreach/<JOB_ID>.json`.
 
 Do NOT send any messages or connection requests — this is find-only. The user reviews in the triage UI, then runs `/outreach-send` or clicks 📨 Send approved.
 

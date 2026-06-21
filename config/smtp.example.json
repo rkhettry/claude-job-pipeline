@@ -1,0 +1,7 @@
+{
+  "_comment": "Copy this file to smtp.json and fill in real values. smtp.json is gitignored — never commit your app password. Get a Gmail App Password at https://myaccount.google.com/apppasswords (requires 2-Step Verification on the account). Paste it with or without spaces.",
+  "sender_email": "you@gmail.com",
+  "app_password": "abcd efgh ijkl mnop",
+  "smtp_host": "smtp.gmail.com",
+  "smtp_port": 465
+}

@@ -30,7 +30,7 @@ Created by `outreach-lead-finder-spec.md` (Stage 1). Read + mutated by the triag
       "title": "University Recruiter, New Grad SWE",
       "company": "Palantir",
       "profile_url": "https://www.linkedin.com/in/janesmith/",
-      "summary": "4 yrs at Palantir, focused on new-grad / university hiring. Connected with Raj (1st-degree).",
+      "summary": "4 yrs at Palantir, focused on new-grad / university hiring. Connected with the user (1st-degree).",
       "connection_degree": "1st",
       "lead_type": "recruiter",
       "qualified_reason": "1st-degree connection, new-grad recruiting focus, same org",

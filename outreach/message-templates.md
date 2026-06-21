@@ -28,7 +28,7 @@ The `{context}` placeholder is the most-misused part of these templates. Default
 | Signal | Fill `{context}` with | Example |
 |---|---|---|
 | Recent visible post by the lead about a product/feature | ` Loved your recent post on {topic}.` | ` Loved your recent post on the AIP rollout.` |
-| Concrete, real product/team Raj cares about | ` Big fan of {company}'s work on {topic}.` | ` Big fan of Palantir's work on the FDE program.` |
+| Concrete, real product/team the user cares about | ` Big fan of {company}'s work on {topic}.` | ` Big fan of Palantir's work on the FDE program.` |
 | You know nothing specific but want flow (founder/engineer only, NEVER recruiter) | ` Big fan of what you're building.` or ` Genuinely excited about what y'all are doing.` | (use sparingly) |
 | Anything else | `""` (empty) — DEFAULT | |
 

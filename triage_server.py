@@ -53,7 +53,7 @@ OUTREACH_DIR.mkdir(exist_ok=True)
 OUTREACH_FIND_PROMPT = AUTOMATION_DIR / "prompts" / "outreach-find.txt"
 OUTREACH_SEND_PROMPT = AUTOMATION_DIR / "prompts" / "outreach-send.txt"
 VERIFY_DATE_PROMPT = AUTOMATION_DIR / "prompts" / "verify-date.txt"
-PORT = 8765
+PORT = int(os.environ.get("TRIAGE_PORT", "8765"))
 
 # Sourcing pipeline stages — used by /runs live-view to show which step Claude is on.
 # Order is the pipeline order (preflight → ... → done). Patterns matched against
@@ -172,10 +172,14 @@ def spawn_claude_tailor(job_id: int) -> Path:
     # That makes the close-helper fire after claude exits, so the Terminal window
     # disposes of itself automatically. Without -p, the window stays open until
     # the user manually /exits.
+    # stream-json (+ required --verbose) emits one JSON event per line AS THE RUN
+    # HAPPENS, teed into the log — that's what feeds the 📡 live viewer at /runs.
+    # Plain -p would buffer everything and keep the log empty until the very end.
     inner_cmd = (
         f"printf '\\033]0;{window_title}\\007'; "
         f"cd {shlex.quote(str(RESUME_ROOT))} && "
-        f"claude -p --dangerously-skip-permissions {shlex.quote(prompt)}; "
+        f"claude -p --verbose --output-format stream-json --dangerously-skip-permissions "
+        f"{shlex.quote(prompt)} 2>&1 | tee -a {shlex.quote(str(log_path))}; "
         f"bash {shlex.quote(str(close_script))} & "
         f"sleep 1; exit"
     )
@@ -183,7 +187,7 @@ def spawn_claude_tailor(job_id: int) -> Path:
     # AppleScript-escape the inner command for embedding in `do script "..."`
     cmd_esc = inner_cmd.replace("\\", "\\\\").replace('"', '\\"')
 
-    # Use Terminal.app only — Raj has a custom iTerm config that breaks keystroke
+    # Use Terminal.app only — the user has a custom iTerm config that breaks keystroke
     # injection. With the prompt passed as CLI arg we don't need keystroke injection
     # anyway, but Terminal.app is more reliable end-to-end.
     applescript = f'''
@@ -256,7 +260,7 @@ def _set_resume_version(job_id: int, value: str) -> None:
 # ---------------------------------------------------------------------------
 # Outreach (LinkedIn lead-finding + sending). Two Claude Code spawns: one to
 # discover recruiters/founders/engineers, one to actually send the messages.
-# Both use Chrome MCP (Raj is already authenticated on LinkedIn).
+# Both use Chrome MCP (the user is already authenticated on LinkedIn).
 # ---------------------------------------------------------------------------
 
 def _outreach_sidecar(job_id: int) -> Path:
@@ -303,10 +307,12 @@ def _spawn_claude_outreach(job_id: int, kind: str, lead_count: int = 0, append: 
 
     # --chrome flag enables Chrome MCP so Claude can drive LinkedIn directly.
     # `-p` is non-interactive: claude exits after the task so the close-helper fires.
+    # stream-json + tee feeds the 📡 live viewer at /runs (see tailor spawn).
     inner_cmd = (
         f"printf '\\033]0;{window_title}\\007'; "
         f"cd {shlex.quote(str(RESUME_ROOT))} && "
-        f"claude -p --dangerously-skip-permissions --chrome {shlex.quote(prompt)}; "
+        f"claude -p --verbose --output-format stream-json --dangerously-skip-permissions "
+        f"--chrome {shlex.quote(prompt)} 2>&1 | tee -a {shlex.quote(str(log_path))}; "
         f"bash {shlex.quote(str(close_script))} & "
         f"sleep 1; exit"
     )
@@ -552,10 +558,12 @@ def _spawn_claude_verify_date(job_id: int) -> Path:
 
     # `-p` is non-interactive print mode: claude exits after the task so the
     # close-helper fires and the Terminal window auto-disposes.
+    # stream-json + tee feeds the 📡 live viewer at /runs (see tailor spawn).
     inner_cmd = (
         f"printf '\\033]0;{window_title}\\007'; "
         f"cd {shlex.quote(str(RESUME_ROOT))} && "
-        f"claude -p --dangerously-skip-permissions --chrome {shlex.quote(prompt)}; "
+        f"claude -p --verbose --output-format stream-json --dangerously-skip-permissions "
+        f"--chrome {shlex.quote(prompt)} 2>&1 | tee -a {shlex.quote(str(log_path))}; "
         f"bash {shlex.quote(str(close_script))} & "
         f"sleep 1; exit"
     )
@@ -835,7 +843,7 @@ a { color: inherit; }
     <div class="stat yes"><div class="stat-num" id="count-applied">·</div><div class="stat-label">Applied</div></div>
     <div class="stat yes"><div class="stat-num" id="count-outreached">·</div><div class="stat-label">Outreached</div></div>
     <div class="stat no"><div class="stat-num" id="count-passed">·</div><div class="stat-label">Passed</div></div>
-    <a href="/runs" class="reload-btn" style="text-decoration:none;color:inherit;padding:5px 10px;" title="Live sourcing run">▶ Live</a>
+    <a href="/runs" class="reload-btn" style="text-decoration:none;color:inherit;padding:5px 10px;" title="Live viewer — watch any Claude run (sourcing, tailor, outreach, verify) as it happens">📡 Live</a>
     <button class="reload-btn" id="kill-all-btn" title="Close all stuck Claude terminals (Terminal.app only, not iTerm2)">🧹</button>
     <button class="reload-btn" id="reload-btn" title="Reload">↻</button>
   </div>
@@ -1749,151 +1757,120 @@ RUNS_HTML = r"""<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>🎯 Sourcing run · live</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%8E%AF</text></svg>">
+<title>📡 Live runs</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%93%A1</text></svg>">
 <style>
 :root { color-scheme: light; }
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; background: #fafbfc; color: #0f172a; font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif; font-size: 14px; }
-body { padding: 0 16px 60px; max-width: 1100px; margin: 0 auto; }
-.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 18px 4px 12px; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; background: #fafbfc; z-index: 5; }
-.title { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }
-.subtitle { font-size: 12px; color: #64748b; margin-top: 2px; font-variant-numeric: tabular-nums; }
-.back-link { font-size: 13px; color: #475569; text-decoration: none; padding: 6px 12px; border: 1px solid #e2e8f0; border-radius: 6px; background: white; }
-.back-link:hover { background: #f1f5f9; }
-
-.status-pill { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.02em; }
-.status-pill.live { background: #dbeafe; color: #1d4ed8; }
-.status-pill.idle { background: #f1f5f9; color: #64748b; }
-.status-pill.stalled { background: #fef3c7; color: #b45309; }
-.status-pill.done { background: #dcfce7; color: #15803d; }
-.status-pill .dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-.status-pill.live .dot { animation: pulse 1.2s ease-in-out infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-
-.pipeline { display: flex; flex-wrap: wrap; gap: 6px; padding: 22px 0 18px; align-items: stretch; }
-.stage { flex: 1 1 0; min-width: 92px; padding: 12px 8px; border-radius: 10px; border: 1.5px solid #e2e8f0; background: white; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; transition: all 0.25s; }
-.stage-icon { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; }
-.stage-name { font-size: 11px; font-weight: 500; line-height: 1.25; letter-spacing: 0.01em; }
-.stage.pending { color: #94a3b8; border-color: #e2e8f0; }
-.stage.pending .stage-icon { background: #f1f5f9; color: #cbd5e1; }
-.stage.active { color: #1d4ed8; border-color: #93c5fd; background: #eff6ff; box-shadow: 0 0 0 4px rgba(59,130,246,0.12); }
-.stage.active .stage-icon { background: #1d4ed8; color: white; animation: spin 1.3s linear infinite; }
-.stage.stalled { color: #b45309; border-color: #fde68a; background: #fffbeb; }
-.stage.stalled .stage-icon { background: #f59e0b; color: white; }
-.stage.completed { color: #15803d; border-color: #86efac; background: #f0fdf4; }
-.stage.completed .stage-icon { background: #15803d; color: white; }
-@keyframes spin { to { transform: rotate(360deg); } }
-.arrow { align-self: center; color: #cbd5e1; font-size: 16px; padding: 0 2px; user-select: none; }
-
-.panel { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0; overflow: hidden; margin-top: 8px; }
-.panel-head { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; font-size: 12px; font-weight: 600; color: #475569; display: flex; align-items: center; justify-content: space-between; }
-.panel-head .log-path { font-family: SF Mono, Monaco, monospace; font-weight: 400; font-size: 11px; color: #94a3b8; max-width: 60%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.log-pre { background: #0f172a; color: #e2e8f0; padding: 14px 16px; font-family: SF Mono, Monaco, monospace; font-size: 11px; line-height: 1.55; max-height: 480px; overflow-y: scroll; margin: 0; white-space: pre-wrap; word-break: break-word; }
-.log-pre::-webkit-scrollbar { width: 10px; }
-.log-pre::-webkit-scrollbar-thumb { background: #334155; border-radius: 5px; }
-.log-empty { padding: 40px 20px; text-align: center; color: #94a3b8; font-size: 13px; }
-
-.error-banner { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; padding: 10px 14px; border-radius: 8px; margin: 12px 0; font-size: 13px; }
+html, body { margin:0; padding:0; background:#fafbfc; color:#0f172a; font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",system-ui,sans-serif; font-size:14px; }
+.top { display:flex; align-items:center; justify-content:space-between; padding:14px 18px; border-bottom:1px solid #e2e8f0; background:#fff; position:sticky; top:0; z-index:5; }
+.title { font-size:17px; font-weight:650; }
+.back-link { font-size:13px; color:#475569; text-decoration:none; padding:6px 12px; border:1px solid #e2e8f0; border-radius:6px; background:#fff; }
+.back-link:hover { background:#f1f5f9; }
+.wrap { display:flex; gap:0; height:calc(100vh - 57px); }
+.side { width:300px; min-width:240px; border-right:1px solid #e2e8f0; overflow-y:auto; background:#fff; }
+.run-item { padding:11px 14px; border-bottom:1px solid #f1f5f9; cursor:pointer; }
+.run-item:hover { background:#f8fafc; }
+.run-item.sel { background:#eef2ff; border-left:3px solid #6366f1; padding-left:11px; }
+.run-label { font-weight:600; font-size:13px; }
+.run-meta { font-size:11.5px; color:#64748b; margin-top:3px; display:flex; gap:8px; align-items:center; }
+.pill { display:inline-flex; align-items:center; gap:5px; padding:1px 8px; border-radius:999px; font-size:10.5px; font-weight:700; }
+.pill.live { background:#dbeafe; color:#1d4ed8; } .pill.live .dot { animation:pulse 1.2s infinite; }
+.pill.done { background:#dcfce7; color:#15803d; }
+.pill.idle { background:#f1f5f9; color:#64748b; }
+.pill .dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.25} }
+.feed { flex:1; overflow-y:auto; padding:16px 22px 80px; background:#0f172a; }
+.empty { color:#64748b; padding:40px; text-align:center; }
+.ev { margin:0 0 6px; max-width:980px; font-size:12.5px; line-height:1.5; }
+.ev.text { background:#1e293b; color:#e2e8f0; border-radius:8px; padding:9px 13px; white-space:pre-wrap; border-left:3px solid #6366f1; }
+.ev.tool { color:#7dd3fc; font-family:ui-monospace,Menlo,monospace; font-size:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.ev.tool .tname { color:#38bdf8; font-weight:700; }
+.ev.tres { color:#475569; font-family:ui-monospace,Menlo,monospace; font-size:11px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding-left:18px; }
+.ev.tres.err { color:#f87171; }
+.ev.info { color:#64748b; font-size:11.5px; }
+.ev.raw { color:#475569; font-family:ui-monospace,Menlo,monospace; font-size:11px; white-space:pre-wrap; }
+.ev.done { background:#064e3b; color:#d1fae5; border-radius:8px; padding:10px 14px; white-space:pre-wrap; border-left:3px solid #10b981; }
+.ev.done.fail { background:#450a0a; color:#fecaca; border-left-color:#ef4444; }
+.feed-head { color:#94a3b8; font-size:12px; padding-bottom:10px; border-bottom:1px solid #1e293b; margin-bottom:12px; }
 </style>
 </head>
 <body>
-
 <div class="top">
-  <div>
-    <div class="title">Sourcing run · live <span id="status-pill" class="status-pill idle"><span class="dot"></span><span id="status-label">idle</span></span></div>
-    <div class="subtitle" id="subtitle">Loading…</div>
-  </div>
-  <a class="back-link" href="/">← Back to triage</a>
+  <div class="title">📡 Live runs</div>
+  <a class="back-link" href="/">← back to triage</a>
 </div>
-
-<div class="pipeline" id="pipeline"></div>
-
-<div class="panel">
-  <div class="panel-head">
-    <span>Live log tail</span>
-    <span class="log-path" id="log-path"></span>
-  </div>
-  <pre class="log-pre" id="log-tail"><div class="log-empty">Waiting for log…</div></pre>
+<div class="wrap">
+  <div class="side" id="side"><div class="empty">loading…</div></div>
+  <div class="feed" id="feed"><div class="empty">select a run on the left</div></div>
 </div>
-
 <script>
-(function() {
-  const $ = (id) => document.getElementById(id);
-  const tailEl = $('log-tail');
-  const pipelineEl = $('pipeline');
-  let userScrolled = false;
-  tailEl.addEventListener('scroll', () => {
-    const atBottom = tailEl.scrollTop + tailEl.clientHeight >= tailEl.scrollHeight - 8;
-    userScrolled = !atBottom;
-  });
+let selected = null, offset = 0, evTimer = null;
+const TOOL_ICONS = { navigate:"🌐", computer:"🖱️", read_page:"📖", get_page_text:"📖", find:"🔍",
+  Bash:"🔧", Read:"📄", Edit:"✏️", Write:"✏️", Glob:"🔍", Grep:"🔍", WebFetch:"🌐", WebSearch:"🔎", TodoWrite:"📝" };
+function esc(s){ const d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
+function fmtTime(ts){ return new Date(ts*1000).toLocaleString([], {month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}); }
 
-  function setStatus(state, label) {
-    const pill = $('status-pill');
-    pill.className = 'status-pill ' + state;
-    $('status-label').textContent = label;
-  }
+async function refreshList(){
+  try {
+    const r = await fetch('/api/runs-list'); const data = await r.json();
+    const side = document.getElementById('side');
+    if (!data.runs.length) { side.innerHTML = '<div class="empty">no runs in the last 48h</div>'; return; }
+    side.innerHTML = data.runs.map(run => {
+      const pill = run.active ? '<span class="pill live"><span class="dot"></span>LIVE</span>'
+                 : run.done   ? '<span class="pill done">done</span>'
+                              : '<span class="pill idle">idle</span>';
+      return `<div class="run-item ${run.name===selected?'sel':''}" data-name="${esc(run.name)}">
+        <div class="run-label">${esc(run.label)}</div>
+        <div class="run-meta">${pill}<span>${fmtTime(run.mtime)}</span><span>${(run.size/1024).toFixed(0)}KB</span></div>
+      </div>`;
+    }).join('');
+    side.querySelectorAll('.run-item').forEach(el =>
+      el.addEventListener('click', () => selectRun(el.dataset.name)));
+    // auto-select the newest LIVE run on first load
+    if (!selected) { const live = data.runs.find(r=>r.active) || data.runs[0]; if (live) selectRun(live.name); }
+  } catch(e) {}
+}
 
-  function renderStages(stages) {
-    const parts = [];
-    stages.forEach((s, i) => {
-      let icon = '';
-      if (s.state === 'completed') icon = '✓';
-      else if (s.state === 'active') icon = '⟳';
-      else if (s.state === 'stalled') icon = '!';
-      else icon = '·';
-      parts.push(`<div class="stage ${s.state}" title="${s.id}"><div class="stage-icon">${icon}</div><div class="stage-name">${s.name}</div></div>`);
-      if (i < stages.length - 1) parts.push('<div class="arrow">→</div>');
-    });
-    pipelineEl.innerHTML = parts.join('');
-  }
+function selectRun(name){
+  selected = name; offset = 0;
+  const feed = document.getElementById('feed');
+  feed.innerHTML = `<div class="feed-head">${esc(name)}</div>`;
+  document.querySelectorAll('.run-item').forEach(el => el.classList.toggle('sel', el.dataset.name===name));
+  if (evTimer) clearInterval(evTimer);
+  pollEvents(); evTimer = setInterval(pollEvents, 2000);
+}
 
-  async function refresh() {
-    try {
-      const res = await fetch('/api/run-status', { cache: 'no-store' });
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const data = await res.json();
+function render(ev){
+  if (ev.t==='text') return `<div class="ev text">${esc(ev.text)}</div>`;
+  if (ev.t==='tool') { const ic = TOOL_ICONS[ev.name] || (ev.name.startsWith('mcp__')?'🌐':'🔧');
+    return `<div class="ev tool">${ic} <span class="tname">${esc(ev.name.replace('mcp__claude-in-chrome__',''))}</span> ${esc(ev.input)}</div>`; }
+  if (ev.t==='tool_result') return ev.text ? `<div class="ev tres ${ev.is_error?'err':''}">↳ ${esc(ev.text)}</div>` : '';
+  if (ev.t==='info') return `<div class="ev info">ⓘ ${esc(ev.text)}</div>`;
+  if (ev.t==='done') { const mins = Math.floor(ev.duration_s/60), secs = ev.duration_s%60;
+    const cost = ev.cost ? ` · $${ev.cost.toFixed(2)}` : '';
+    return `<div class="ev done ${ev.ok?'':'fail'}">${ev.ok?'✅':'❌'} finished in ${mins}m ${secs}s${cost}\n${esc(ev.text)}</div>`; }
+  if (ev.t==='raw') return `<div class="ev raw">${esc(ev.text)}</div>`;
+  return '';
+}
 
-      renderStages(data.stages || []);
-
-      if (!data.has_log) {
-        setStatus('idle', 'no runs yet');
-        $('subtitle').textContent = 'No sourcing log found. The daily cron at 12:00 PT will create one.';
-        tailEl.innerHTML = '<div class="log-empty">No log yet. Trigger a run with: <code>launchctl start com.raj.daily-sourcing</code></div>';
-        $('log-path').textContent = '';
-        return;
-      }
-
-      const isDone = data.current_stage === 'done';
-      if (isDone) setStatus('done', 'done');
-      else if (data.is_active) setStatus('live', 'live');
-      else setStatus('stalled', 'stalled');
-
-      const mtime = data.log_mtime ? new Date(data.log_mtime) : null;
-      const mtimeStr = mtime ? mtime.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', second: '2-digit'}) : '';
-      $('subtitle').textContent = (data.current_stage || 'starting') + ' · last log activity ' + mtimeStr;
-      $('log-path').textContent = data.log_path || '';
-
-      const tail = data.tail || '';
-      if (tail) {
-        // Avoid rerendering identical content — preserves scroll position
-        if (tailEl.dataset.last !== tail) {
-          tailEl.textContent = tail;
-          tailEl.dataset.last = tail;
-          if (!userScrolled) tailEl.scrollTop = tailEl.scrollHeight;
-        }
-      } else {
-        tailEl.innerHTML = '<div class="log-empty">Log exists but no readable content yet.</div>';
-      }
-    } catch (e) {
-      setStatus('stalled', 'error');
-      $('subtitle').textContent = 'Refresh failed: ' + e.message;
+async function pollEvents(){
+  if (!selected) return;
+  try {
+    const r = await fetch(`/api/run-events?name=${encodeURIComponent(selected)}&offset=${offset}`);
+    if (!r.ok) return;
+    const data = await r.json();
+    offset = data.offset;
+    if (data.events.length) {
+      const feed = document.getElementById('feed');
+      const pinned = feed.scrollHeight - feed.scrollTop - feed.clientHeight < 120;
+      feed.insertAdjacentHTML('beforeend', data.events.map(render).join(''));
+      if (pinned) feed.scrollTop = feed.scrollHeight;
     }
-  }
+  } catch(e) {}
+}
 
-  refresh();
-  setInterval(refresh, 2500);
-})();
+refreshList(); setInterval(refreshList, 5000);
 </script>
 </body>
 </html>
@@ -1934,6 +1911,12 @@ class Handler(BaseHTTPRequestHandler):
         if self.path == "/api/run-status":
             self._handle_run_status()
             return
+        if self.path == "/api/runs-list":
+            self._handle_runs_list()
+            return
+        if self.path.startswith("/api/run-events"):
+            self._handle_run_events()
+            return
         if self.path == "/api/health":
             self._send_json(200, {"ok": True, "xlsx": str(XLSX_PATH), "xlsx_exists": XLSX_PATH.exists(), "claude_bin": CLAUDE_BIN})
             return
@@ -1944,6 +1927,135 @@ class Handler(BaseHTTPRequestHandler):
             self._serve_resume_file(self.path[len("/resume-files/"):])
             return
         self._send(404, "Not Found", "text/plain")
+
+    RUN_LOG_KINDS = [
+        ("sourcing-", "sourcing", "🌐 Daily sourcing"),
+        ("tailor-", "tailor", "✂️ Resume tailor"),
+        ("outreach-find-", "outreach-find", "🔎 Outreach: find leads"),
+        ("outreach-send-", "outreach-send", "📨 Outreach: send"),
+        ("verify-date-", "verify-date", "📅 Verify date"),
+    ]
+    RUN_LOG_NAME_RE = re.compile(r"^[A-Za-z0-9._-]+\.log$")
+
+    def _handle_runs_list(self):
+        """GET /api/runs-list — recent spawned runs with live/done state."""
+        now = datetime.datetime.now().timestamp()
+        runs = []
+        for p in LOGS_DIR.glob("*.log"):
+            kind = label = None
+            for prefix, k, lab in self.RUN_LOG_KINDS:
+                if p.name.startswith(prefix):
+                    kind, label = k, lab
+                    break
+            if not kind:
+                continue
+            mtime = p.stat().st_mtime
+            if now - mtime > 48 * 3600:
+                continue
+            # a finished stream-json run always ends with a {"type":"result"} event
+            done = False
+            try:
+                with open(p, "rb") as fh:
+                    fh.seek(max(0, p.stat().st_size - 8192))
+                    tail = fh.read()
+                    done = b'"type":"result"' in tail or b'"type": "result"' in tail
+            except OSError:
+                pass
+            runs.append({
+                "name": p.name,
+                "kind": kind,
+                "label": label,
+                "mtime": int(mtime),
+                "size": p.stat().st_size,
+                "active": (now - mtime) < 90 and not done,
+                "done": done,
+            })
+        runs.sort(key=lambda r: r["mtime"], reverse=True)
+        self._send_json(200, {"runs": runs[:40]})
+
+    @staticmethod
+    def _simplify_stream_event(obj):
+        """Map a claude stream-json event to a small renderable dict."""
+        t = obj.get("type")
+        if t == "system" and obj.get("subtype") == "init":
+            return {"t": "info", "text": f"session started · model {obj.get('model', '?')}"}
+        if t == "assistant":
+            out = []
+            for block in (obj.get("message") or {}).get("content") or []:
+                bt = block.get("type")
+                if bt == "text" and (block.get("text") or "").strip():
+                    out.append({"t": "text", "text": block["text"][:800]})
+                elif bt == "tool_use":
+                    inp = json.dumps(block.get("input") or {}, ensure_ascii=False)
+                    out.append({"t": "tool", "name": block.get("name", "?"),
+                                "input": inp[:300]})
+            return out or None
+        if t == "user":
+            out = []
+            for block in (obj.get("message") or {}).get("content") or []:
+                if isinstance(block, dict) and block.get("type") == "tool_result":
+                    content = block.get("content")
+                    if isinstance(content, list):
+                        content = " ".join(
+                            c.get("text", "") for c in content if isinstance(c, dict))
+                    text = (content or "")[:400] if isinstance(content, str) else ""
+                    out.append({"t": "tool_result", "text": text,
+                                "is_error": bool(block.get("is_error"))})
+            return out or None
+        if t == "result":
+            return {"t": "done",
+                    "ok": obj.get("subtype") == "success",
+                    "duration_s": round((obj.get("duration_ms") or 0) / 1000),
+                    "cost": obj.get("total_cost_usd"),
+                    "text": (obj.get("result") or "")[:1500]}
+        return None
+
+    def _handle_run_events(self):
+        """GET /api/run-events?name=<log>&offset=<bytes> — incremental tail."""
+        from urllib.parse import urlparse, parse_qs
+        q = parse_qs(urlparse(self.path).query)
+        name = (q.get("name") or [""])[0]
+        offset = int((q.get("offset") or ["0"])[0])
+        if not self.RUN_LOG_NAME_RE.match(name):
+            self._send_json(400, {"error": "bad name"})
+            return
+        path = LOGS_DIR / name
+        if not path.exists() or path.resolve().parent != LOGS_DIR.resolve():
+            self._send_json(404, {"error": "no such log"})
+            return
+        size = path.stat().st_size
+        if offset >= size:
+            self._send_json(200, {"events": [], "offset": offset,
+                                  "active": _is_run_active(path)})
+            return
+        with open(path, "rb") as fh:
+            fh.seek(offset)
+            chunk = fh.read(min(size - offset, 2_000_000))
+        # only consume up to the last full line; a partial trailing line waits
+        last_nl = chunk.rfind(b"\n")
+        if last_nl < 0:
+            self._send_json(200, {"events": [], "offset": offset,
+                                  "active": _is_run_active(path)})
+            return
+        consumed = chunk[: last_nl + 1]
+        events = []
+        for raw in consumed.decode("utf-8", errors="replace").splitlines():
+            raw = raw.strip()
+            if not raw:
+                continue
+            try:
+                simplified = self._simplify_stream_event(json.loads(raw))
+            except (json.JSONDecodeError, AttributeError):
+                simplified = {"t": "raw", "text": _strip_ansi(raw)[:400]}
+            if simplified is None:
+                continue
+            if isinstance(simplified, list):
+                events.extend(simplified)
+            else:
+                events.append(simplified)
+        self._send_json(200, {"events": events[:500],
+                              "offset": offset + len(consumed),
+                              "active": _is_run_active(path)})
 
     def _handle_run_status(self):
         """Return the active sourcing run's stage + log tail. Used by /runs."""
@@ -2495,7 +2607,7 @@ class Handler(BaseHTTPRequestHandler):
         """Cancel an in-flight tailoring: clear resume_version, revert decision to pending.
 
         The spawned Claude Code process (and its Terminal window) is NOT killed —
-        the user closes that manually. This endpoint just unblocks the UI so the
+        The user closes that manually. This endpoint just unblocks the UI so the
         user can re-trigger or pick a different job.
         """
         try:

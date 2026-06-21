@@ -1,0 +1,4921 @@
+{
+  "_comment": "ATS watchlist \u2014 companies whose job boards watchlist_poller.py polls directly. 'hints' are slug guesses for discovery; after running watchlist_discover.py each entry gains 'ats' + 'slug' (or 'ats': 'not_found'). Categories are informational. hq drives location preference but the poller filters per-job location anyway.",
+  "companies": [
+    {
+      "name": "OpenAI",
+      "category": "frontier-lab",
+      "hq": "San Francisco",
+      "hints": [
+        "openai"
+      ],
+      "ats": "ashby",
+      "slug": "openai",
+      "job_count": 721,
+      "sample_title": "Technical Program Manager, Compute Infrastructure"
+    },
+    {
+      "name": "Anthropic",
+      "category": "frontier-lab",
+      "hq": "San Francisco",
+      "hints": [
+        "anthropic"
+      ],
+      "ats": "greenhouse",
+      "slug": "anthropic",
+      "job_count": 378,
+      "sample_title": "Account Executive, AI Native ",
+      "board_name": "Anthropic"
+    },
+    {
+      "name": "xAI",
+      "category": "frontier-lab",
+      "hq": "Palo Alto",
+      "hints": [
+        "xai",
+        "x-ai"
+      ],
+      "ats": "greenhouse",
+      "slug": "xai",
+      "job_count": 220,
+      "sample_title": "AI Healthcare and Administration Tutor  ",
+      "board_name": "xAI"
+    },
+    {
+      "name": "Mistral AI",
+      "category": "frontier-lab",
+      "hq": "Paris / SF",
+      "hints": [
+        "mistral",
+        "mistralai"
+      ],
+      "ats": "lever",
+      "slug": "mistral",
+      "job_count": 168,
+      "sample_title": "Account Executive \u2013 AI for Citizens"
+    },
+    {
+      "name": "Thinking Machines Lab",
+      "category": "frontier-lab",
+      "hq": "San Francisco",
+      "hints": [
+        "thinkingmachines",
+        "thinking-machines",
+        "thinkingmachineslab"
+      ],
+      "ats": "greenhouse",
+      "slug": "thinkingmachines",
+      "job_count": 31,
+      "sample_title": "Associate General Counsel, Advanced AI & Privacy",
+      "board_name": "Thinking Machines Lab"
+    },
+    {
+      "name": "Reflection AI",
+      "category": "frontier-lab",
+      "hq": "San Francisco",
+      "hints": [
+        "reflectionai",
+        "reflection-ai",
+        "reflection"
+      ],
+      "ats": "ashby",
+      "slug": "reflectionai",
+      "job_count": 48,
+      "sample_title": "Member of Technical Staff - Pre-Training"
+    },
+    {
+      "name": "Safe Superintelligence",
+      "category": "frontier-lab",
+      "hq": "Palo Alto",
+      "hints": [
+        "ssi",
+        "safesuperintelligence"
+      ],
+      "ats": "ashby",
+      "slug": "ssi",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Character AI",
+      "category": "frontier-lab",
+      "hq": "Menlo Park",
+      "hints": [
+        "character",
+        "characterai",
+        "character-ai"
+      ],
+      "ats": "ashby",
+      "slug": "character",
+      "job_count": 15,
+      "sample_title": "Machine Learning Infrastructure Engineer"
+    },
+    {
+      "name": "Sierra",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "sierra",
+        "sierra-ai"
+      ],
+      "ats": "ashby",
+      "slug": "sierra",
+      "job_count": 123,
+      "sample_title": "Sales Engineer"
+    },
+    {
+      "name": "Decagon",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "decagon",
+        "decagonai"
+      ],
+      "ats": "ashby",
+      "slug": "decagon",
+      "job_count": 111,
+      "sample_title": "Enterprise Account Executive "
+    },
+    {
+      "name": "Cursor (Anysphere)",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "anysphere",
+        "cursor"
+      ],
+      "ats": "ashby",
+      "slug": "cursor",
+      "job_count": 94,
+      "sample_title": "Software Engineer, Growth "
+    },
+    {
+      "name": "Replit",
+      "category": "ai-agents",
+      "hq": "Foster City",
+      "hints": [
+        "replit"
+      ],
+      "ats": "ashby",
+      "slug": "replit",
+      "job_count": 93,
+      "sample_title": "Design Engineer"
+    },
+    {
+      "name": "Perplexity",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "perplexity",
+        "perplexityai",
+        "perplexity-ai"
+      ],
+      "ats": "ashby",
+      "slug": "perplexity",
+      "job_count": 71,
+      "sample_title": "Member of Technical Staff (Software Engineer, Monetization)"
+    },
+    {
+      "name": "Glean",
+      "category": "ai-agents",
+      "hq": "Palo Alto",
+      "hints": [
+        "glean",
+        "gleanwork"
+      ],
+      "ats": "smartrecruiters",
+      "slug": "glean",
+      "job_count": 1,
+      "sample_title": "Senior Software Engineer, Backend (Python, Node.js, AWS, Postgres)"
+    },
+    {
+      "name": "Harvey",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "harvey",
+        "harveyai"
+      ],
+      "ats": "ashby",
+      "slug": "harvey",
+      "job_count": 249,
+      "sample_title": "Mid Market Customer Success Manager, EMEA"
+    },
+    {
+      "name": "Writer",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "writer",
+        "writerai"
+      ],
+      "ats": "ashby",
+      "slug": "writer",
+      "job_count": 50,
+      "sample_title": "Software engineer, generative AI"
+    },
+    {
+      "name": "Factory",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "factory",
+        "factoryai",
+        "factory-ai"
+      ],
+      "ats": "ashby",
+      "slug": "factory",
+      "job_count": 33,
+      "sample_title": "People Operations"
+    },
+    {
+      "name": "Cresta",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "cresta"
+      ],
+      "ats": "greenhouse",
+      "slug": "cresta",
+      "job_count": 112,
+      "sample_title": "Accountant",
+      "board_name": "Cresta"
+    },
+    {
+      "name": "Lindy",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "lindy",
+        "lindyai"
+      ],
+      "ats": "ashby",
+      "slug": "lindy",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "11x",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "11x",
+        "11xai"
+      ],
+      "ats": "ashby",
+      "slug": "11x",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Ema",
+      "category": "ai-agents",
+      "hq": "Mountain View",
+      "hints": [
+        "ema",
+        "emaunlimited"
+      ],
+      "ats": "ashby",
+      "slug": "ema",
+      "job_count": 28,
+      "sample_title": "Solutions Architect"
+    },
+    {
+      "name": "Orby AI",
+      "category": "ai-agents",
+      "hq": "Mountain View",
+      "hints": [
+        "orby",
+        "orbyai"
+      ],
+      "ats": "ashby",
+      "slug": "orby-ai",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Mintlify",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "mintlify"
+      ],
+      "ats": "ashby",
+      "slug": "mintlify",
+      "job_count": 12,
+      "sample_title": "Senior Product Engineer"
+    },
+    {
+      "name": "Greptile",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "greptile"
+      ],
+      "ats": "ashby",
+      "slug": "greptile",
+      "job_count": 3,
+      "sample_title": "Enterprise Account Executive "
+    },
+    {
+      "name": "CodeRabbit",
+      "category": "ai-agents",
+      "hq": "Bay Area",
+      "hints": [
+        "coderabbit"
+      ],
+      "ats": "ashby",
+      "slug": "coderabbit",
+      "job_count": 66,
+      "sample_title": "DevOps Engineer"
+    },
+    {
+      "name": "Mercor",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "mercor"
+      ],
+      "ats": "ashby",
+      "slug": "mercor",
+      "job_count": 61,
+      "sample_title": "People Ops Manager"
+    },
+    {
+      "name": "Speak",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "speak",
+        "speakeasy-ai"
+      ],
+      "ats": "ashby",
+      "slug": "speak",
+      "job_count": 38,
+      "sample_title": "Staff Product Designer"
+    },
+    {
+      "name": "Gamma",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "gamma",
+        "gammaapp"
+      ],
+      "ats": "ashby",
+      "slug": "gamma",
+      "job_count": 46,
+      "sample_title": "Software Engineer, Backend"
+    },
+    {
+      "name": "Clay",
+      "category": "ai-agents",
+      "hq": "NYC / SF",
+      "hints": [
+        "clay",
+        "clayrun"
+      ],
+      "ats": "ashby",
+      "slug": "claylabs",
+      "job_count": 82,
+      "sample_title": "Growth Strategist, Enterprise (Customer Success)"
+    },
+    {
+      "name": "Sourcetable",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "sourcetable"
+      ],
+      "ats": "unsupported",
+      "slug": "email-apply",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Luminai",
+      "category": "ai-agents",
+      "hq": "Palo Alto",
+      "hints": [
+        "luminai"
+      ],
+      "ats": "ashby",
+      "slug": "luminai",
+      "job_count": 11,
+      "sample_title": "Senior Software Engineer, Product"
+    },
+    {
+      "name": "Forethought",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "forethought"
+      ],
+      "ats": "greenhouse",
+      "slug": "forethought",
+      "job_count": 0,
+      "sample_title": "",
+      "board_name": "Forethought"
+    },
+    {
+      "name": "Cartesia",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "cartesia"
+      ],
+      "ats": "ashby",
+      "slug": "cartesia",
+      "job_count": 36,
+      "sample_title": "Inference Engineer"
+    },
+    {
+      "name": "Vapi",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "vapi"
+      ],
+      "ats": "ashby",
+      "slug": "vapi",
+      "job_count": 32,
+      "sample_title": "Member of Technical Staff, Backend"
+    },
+    {
+      "name": "Retell AI",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "retellai",
+        "retell",
+        "retell-ai"
+      ],
+      "ats": "ashby",
+      "slug": "retell-ai",
+      "job_count": 21,
+      "sample_title": "Senior Software Engineer, AI Automations"
+    },
+    {
+      "name": "Deepgram",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "deepgram"
+      ],
+      "ats": "ashby",
+      "slug": "deepgram",
+      "job_count": 59,
+      "sample_title": "Pre-Sales Solutions Engineer (EST or PST)"
+    },
+    {
+      "name": "Rime",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "rime",
+        "rimelabs",
+        "rime-labs"
+      ],
+      "ats": "ashby",
+      "slug": "rime",
+      "job_count": 10,
+      "sample_title": "Machine Learning Engineer, Data Quality"
+    },
+    {
+      "name": "Bland AI",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "bland",
+        "blandai",
+        "bland-ai"
+      ],
+      "ats": "ashby",
+      "slug": "bland",
+      "job_count": 12,
+      "sample_title": "Senior Infrastructure Engineer"
+    },
+    {
+      "name": "AssemblyAI",
+      "category": "voice-ai",
+      "hq": "SF / Remote",
+      "hints": [
+        "assemblyai"
+      ],
+      "ats": "greenhouse",
+      "slug": "assemblyai",
+      "job_count": 7,
+      "sample_title": "AI Native Startups Account Executive",
+      "board_name": "AssemblyAI"
+    },
+    {
+      "name": "ElevenLabs",
+      "category": "voice-ai",
+      "hq": "Remote / NYC",
+      "hints": [
+        "elevenlabs"
+      ],
+      "ats": "ashby",
+      "slug": "elevenlabs",
+      "job_count": 153,
+      "sample_title": "Enterprise Solutions Engineer - North America"
+    },
+    {
+      "name": "Sesame",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "sesame",
+        "sesameai",
+        "sesame-ai"
+      ],
+      "ats": "ashby",
+      "slug": "sesame",
+      "job_count": 28,
+      "sample_title": "iOS Engineer"
+    },
+    {
+      "name": "Wispr Flow",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "wispr",
+        "wisprflow",
+        "wispr-flow"
+      ],
+      "ats": "ashby",
+      "slug": "wispr-flow",
+      "job_count": 19,
+      "sample_title": "Senior Software Engineer"
+    },
+    {
+      "name": "Phonic",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "phonic"
+      ],
+      "ats": "ashby",
+      "slug": "phonic",
+      "job_count": 5,
+      "sample_title": "Backend Engineer"
+    },
+    {
+      "name": "Together AI",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "togetherai",
+        "together",
+        "together-ai"
+      ],
+      "ats": "greenhouse",
+      "slug": "togetherai",
+      "job_count": 56,
+      "sample_title": "AI Infrastructure Engineer",
+      "board_name": "Together AI"
+    },
+    {
+      "name": "Fireworks AI",
+      "category": "ai-infra",
+      "hq": "Redwood City",
+      "hints": [
+        "fireworks",
+        "fireworksai",
+        "fireworks-ai"
+      ],
+      "ats": "ashby",
+      "slug": "fireworksai",
+      "job_count": 26,
+      "sample_title": "Member of Technical Staff, Research"
+    },
+    {
+      "name": "Baseten",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "baseten"
+      ],
+      "ats": "ashby",
+      "slug": "baseten",
+      "job_count": 67,
+      "sample_title": "Product Engineer - Dedicated Inference "
+    },
+    {
+      "name": "Modal",
+      "category": "ai-infra",
+      "hq": "NYC / SF",
+      "hints": [
+        "modal",
+        "modallabs",
+        "modal-labs"
+      ],
+      "ats": "ashby",
+      "slug": "modal",
+      "job_count": 31,
+      "sample_title": "Member of Technical Staff - Systems"
+    },
+    {
+      "name": "Anyscale",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "anyscale"
+      ],
+      "ats": "ashby",
+      "slug": "anyscale",
+      "job_count": 10,
+      "sample_title": "Software Engineer, Ray Core"
+    },
+    {
+      "name": "Scale AI",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "scaleai",
+        "scale"
+      ],
+      "ats": "greenhouse",
+      "slug": "scaleai",
+      "job_count": 175,
+      "sample_title": "AI Applications Ops Lead, GPS",
+      "board_name": "Scale AI"
+    },
+    {
+      "name": "Weights & Biases",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "wandb",
+        "weightsandbiases",
+        "weights-biases"
+      ],
+      "ats": "greenhouse",
+      "slug": "coreweave",
+      "job_count": 260,
+      "sample_title": "Account Executive - M&E"
+    },
+    {
+      "name": "LangChain",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "langchain"
+      ],
+      "ats": "ashby",
+      "slug": "langchain",
+      "job_count": 105,
+      "sample_title": "Web Lead"
+    },
+    {
+      "name": "LlamaIndex",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "llamaindex",
+        "llama-index"
+      ],
+      "ats": "ashby",
+      "slug": "llamaindex",
+      "job_count": 11,
+      "sample_title": "Member of Technical Staff, Full-Stack Product"
+    },
+    {
+      "name": "Chroma",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "chroma",
+        "trychroma"
+      ],
+      "ats": "ashby",
+      "slug": "trychroma",
+      "job_count": 1,
+      "sample_title": "Member of Technical Staff"
+    },
+    {
+      "name": "Turbopuffer",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "turbopuffer"
+      ],
+      "ats": "ashby",
+      "slug": "turbopuffer",
+      "job_count": 8,
+      "sample_title": "deployed engineer"
+    },
+    {
+      "name": "Braintrust",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "braintrust",
+        "braintrustdata",
+        "braintrust-data"
+      ],
+      "ats": "ashby",
+      "slug": "braintrust",
+      "job_count": 31,
+      "sample_title": "Commercial Account Executive (West Region)"
+    },
+    {
+      "name": "OpenRouter",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "openrouter"
+      ],
+      "ats": "ashby",
+      "slug": "openrouter",
+      "job_count": 11,
+      "sample_title": "Software Engineer, Developer Products"
+    },
+    {
+      "name": "Groq",
+      "category": "ai-infra",
+      "hq": "Mountain View",
+      "hints": [
+        "groq"
+      ],
+      "ats": "unsupported",
+      "slug": "gem",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Cerebras",
+      "category": "ai-infra",
+      "hq": "Sunnyvale",
+      "hints": [
+        "cerebras",
+        "cerebras-systems"
+      ],
+      "ats": "ashby",
+      "slug": "cerebras",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "SambaNova",
+      "category": "ai-infra",
+      "hq": "Palo Alto",
+      "hints": [
+        "sambanova",
+        "sambanovasystems"
+      ],
+      "ats": "greenhouse",
+      "slug": "sambanovasystems",
+      "job_count": 19,
+      "sample_title": "Cloud Site Reliability Engineer",
+      "board_name": "SambaNova Systems"
+    },
+    {
+      "name": "Etched",
+      "category": "ai-infra",
+      "hq": "Cupertino",
+      "hints": [
+        "etched",
+        "etchedai"
+      ],
+      "ats": "ashby",
+      "slug": "etched",
+      "job_count": 97,
+      "sample_title": "Design Verification Engineer - Internal IP"
+    },
+    {
+      "name": "MatX",
+      "category": "ai-infra",
+      "hq": "Mountain View",
+      "hints": [
+        "matx"
+      ],
+      "ats": "ashby",
+      "slug": "matx",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Lambda",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "lambda",
+        "lambdalabs",
+        "lambda-labs"
+      ],
+      "ats": "ashby",
+      "slug": "lambda",
+      "job_count": 38,
+      "sample_title": "Data Center Technical Program Manager"
+    },
+    {
+      "name": "Crusoe",
+      "category": "ai-infra",
+      "hq": "SF / Denver",
+      "hints": [
+        "crusoe",
+        "crusoeenergy"
+      ],
+      "ats": "ashby",
+      "slug": "crusoe",
+      "job_count": 342,
+      "sample_title": "Staff Product Security Engineer"
+    },
+    {
+      "name": "Databricks",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "databricks"
+      ],
+      "ats": "greenhouse",
+      "slug": "databricks",
+      "job_count": 778,
+      "sample_title": "\u30bd\u30ea\u30e5\u30fc\u30b7\u30e7\u30f3\u30a2\u30fc\u30ad\u30c6\u30af\u30c8 (\u30d7\u30ea\u30bb\u30fc\u30eb\u30b9)",
+      "board_name": "Databricks"
+    },
+    {
+      "name": "Snowflake",
+      "category": "ai-infra",
+      "hq": "San Mateo",
+      "hints": [
+        "snowflake",
+        "snowflakecomputing"
+      ],
+      "ats": "ashby",
+      "slug": "snowflake",
+      "job_count": 392,
+      "sample_title": "Commercial Account Executive "
+    },
+    {
+      "name": "Confluent",
+      "category": "ai-infra",
+      "hq": "Mountain View",
+      "hints": [
+        "confluent"
+      ],
+      "ats": "ashby",
+      "slug": "confluent",
+      "job_count": 50,
+      "sample_title": "Senior Software Engineer"
+    },
+    {
+      "name": "Arize AI",
+      "category": "ai-infra",
+      "hq": "Berkeley",
+      "hints": [
+        "arize",
+        "arizeai",
+        "arize-ai"
+      ],
+      "ats": "greenhouse",
+      "slug": "arizeai",
+      "job_count": 37,
+      "sample_title": "AI Application Engineer, APJ",
+      "board_name": "Arize AI"
+    },
+    {
+      "name": "Galileo",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "galileo",
+        "rungalileo"
+      ],
+      "ats": "greenhouse",
+      "slug": "galileo",
+      "job_count": 7,
+      "sample_title": "Clinical Health Advocate (Part-time)",
+      "board_name": "Galileo"
+    },
+    {
+      "name": "Pylon",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "pylon",
+        "usepylon"
+      ],
+      "ats": "ashby",
+      "slug": "pylon",
+      "job_count": 13,
+      "sample_title": "Senior Product Manager"
+    },
+    {
+      "name": "Vercel",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "vercel"
+      ],
+      "ats": "ashby",
+      "slug": "vercel",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Linear",
+      "category": "dev-tools",
+      "hq": "SF / Remote",
+      "hints": [
+        "linear"
+      ],
+      "ats": "ashby",
+      "slug": "linear",
+      "job_count": 25,
+      "sample_title": "Senior / Staff Fullstack Engineer"
+    },
+    {
+      "name": "Warp",
+      "category": "dev-tools",
+      "hq": "SF / NYC",
+      "hints": [
+        "warp",
+        "warpdotdev",
+        "warp-dev"
+      ],
+      "ats": "ashby",
+      "slug": "warp",
+      "job_count": 20,
+      "sample_title": "Software Engineer, Growth"
+    },
+    {
+      "name": "Retool",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "retool"
+      ],
+      "ats": "unsupported",
+      "slug": "gem",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Browserbase",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "browserbase"
+      ],
+      "ats": "ashby",
+      "slug": "browserbase",
+      "job_count": 6,
+      "sample_title": "Software Engineer (Core Infrastructure)"
+    },
+    {
+      "name": "E2B",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "e2b"
+      ],
+      "ats": "ashby",
+      "slug": "e2b",
+      "job_count": 13,
+      "sample_title": "Product Engineer - AI"
+    },
+    {
+      "name": "Supabase",
+      "category": "dev-tools",
+      "hq": "Remote",
+      "hints": [
+        "supabase"
+      ],
+      "ats": "ashby",
+      "slug": "supabase",
+      "job_count": 46,
+      "sample_title": "Customer Solution Architect (AMER)"
+    },
+    {
+      "name": "Render",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "render"
+      ],
+      "ats": "ashby",
+      "slug": "render",
+      "job_count": 23,
+      "sample_title": "Engineering Manager, Product"
+    },
+    {
+      "name": "Railway",
+      "category": "dev-tools",
+      "hq": "Remote",
+      "hints": [
+        "railway"
+      ],
+      "ats": "ashby",
+      "slug": "railway",
+      "job_count": 9,
+      "sample_title": "Senior Full-Stack Engineer - Product"
+    },
+    {
+      "name": "Temporal",
+      "category": "dev-tools",
+      "hq": "Seattle / Remote",
+      "hints": [
+        "temporal",
+        "temporaltechnologies",
+        "temporal-technologies"
+      ],
+      "ats": "ashby",
+      "slug": "temporal",
+      "job_count": 49,
+      "sample_title": "Staff Software Engineer, Open Source Server"
+    },
+    {
+      "name": "Figma",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "figma"
+      ],
+      "ats": "greenhouse",
+      "slug": "figma",
+      "job_count": 168,
+      "sample_title": "Accenture Account Executive, Strategic (London, United Kingdom)  ",
+      "board_name": "Figma"
+    },
+    {
+      "name": "Notion",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "notion"
+      ],
+      "ats": "ashby",
+      "slug": "notion",
+      "job_count": 145,
+      "sample_title": "Outbound Business Development Representative "
+    },
+    {
+      "name": "Airtable",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "airtable"
+      ],
+      "ats": "ashby",
+      "slug": "airtable",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Postman",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "postman"
+      ],
+      "ats": "greenhouse",
+      "slug": "postman",
+      "job_count": 122,
+      "sample_title": "Account Development Representative",
+      "board_name": "Postman"
+    },
+    {
+      "name": "Docker",
+      "category": "dev-tools",
+      "hq": "Palo Alto",
+      "hints": [
+        "docker"
+      ],
+      "ats": "ashby",
+      "slug": "docker",
+      "job_count": 36,
+      "sample_title": "Senior Software Engineer, Docker Desktop (East Coast)"
+    },
+    {
+      "name": "Grammarly",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "grammarly"
+      ],
+      "ats": "greenhouse",
+      "slug": "grammarly",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Atlassian",
+      "category": "dev-tools",
+      "hq": "SF / Remote",
+      "hints": [
+        "atlassian"
+      ],
+      "ats": "lever",
+      "slug": "atlassian",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Canva",
+      "category": "dev-tools",
+      "hq": "SF / Sydney",
+      "hints": [
+        "canva"
+      ],
+      "ats": "smartrecruiters",
+      "slug": "canva",
+      "job_count": 287,
+      "sample_title": "Account Executive - Gov & Healthcare (Austin, Texas) "
+    },
+    {
+      "name": "Amplitude",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "amplitude"
+      ],
+      "ats": "ashby",
+      "slug": "amplitude",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Mixpanel",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "mixpanel"
+      ],
+      "ats": "greenhouse",
+      "slug": "mixpanel",
+      "job_count": 34,
+      "sample_title": "Account Executive",
+      "board_name": "Mixpanel"
+    },
+    {
+      "name": "PostHog",
+      "category": "dev-tools",
+      "hq": "Remote",
+      "hints": [
+        "posthog"
+      ],
+      "ats": "ashby",
+      "slug": "posthog",
+      "job_count": 16,
+      "sample_title": "Technical Ex-Founder"
+    },
+    {
+      "name": "Zed",
+      "category": "dev-tools",
+      "hq": "Remote",
+      "hints": [
+        "zed",
+        "zedindustries",
+        "zed-industries"
+      ],
+      "ats": "ashby",
+      "slug": "zed",
+      "job_count": 1,
+      "sample_title": "Designer"
+    },
+    {
+      "name": "Stripe",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "stripe"
+      ],
+      "ats": "greenhouse",
+      "slug": "stripe",
+      "job_count": 498,
+      "sample_title": "Account Executive, AI Sales",
+      "board_name": "Stripe"
+    },
+    {
+      "name": "Plaid",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "plaid"
+      ],
+      "ats": "ashby",
+      "slug": "plaid",
+      "job_count": 104,
+      "sample_title": "Senior Fraud and Abuse Operations Analyst"
+    },
+    {
+      "name": "Brex",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "brex"
+      ],
+      "ats": "greenhouse",
+      "slug": "brex",
+      "job_count": 231,
+      "sample_title": "Account Executive, Enterprise",
+      "board_name": "Brex"
+    },
+    {
+      "name": "Ramp",
+      "category": "fintech",
+      "hq": "NYC",
+      "hints": [
+        "ramp"
+      ],
+      "ats": "ashby",
+      "slug": "ramp",
+      "job_count": 110,
+      "sample_title": " Security Engineer, Cloud"
+    },
+    {
+      "name": "Mercury",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "mercury"
+      ],
+      "ats": "ashby",
+      "slug": "mercury",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Affirm",
+      "category": "fintech",
+      "hq": "SF / Remote",
+      "hints": [
+        "affirm"
+      ],
+      "ats": "greenhouse",
+      "slug": "affirm",
+      "job_count": 161,
+      "sample_title": "Affirm Bank Compliance Lead, CRA and Complaints",
+      "board_name": "Affirm"
+    },
+    {
+      "name": "Robinhood",
+      "category": "fintech",
+      "hq": "Menlo Park",
+      "hints": [
+        "robinhood"
+      ],
+      "ats": "greenhouse",
+      "slug": "robinhood",
+      "job_count": 163,
+      "sample_title": "Analytics Developer",
+      "board_name": "Robinhood"
+    },
+    {
+      "name": "Coinbase",
+      "category": "fintech",
+      "hq": "SF / Remote",
+      "hints": [
+        "coinbase"
+      ],
+      "ats": "greenhouse",
+      "slug": "coinbase",
+      "job_count": 47,
+      "sample_title": "Accountant, Capital Markets",
+      "board_name": "Coinbase"
+    },
+    {
+      "name": "Chime",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "chime"
+      ],
+      "ats": "greenhouse",
+      "slug": "chime",
+      "job_count": 66,
+      "sample_title": "Accountant",
+      "board_name": "Chime Financial, Inc"
+    },
+    {
+      "name": "Rippling",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "rippling"
+      ],
+      "ats": "unsupported",
+      "slug": "rippling-ats",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Gusto",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "gusto"
+      ],
+      "ats": "greenhouse",
+      "slug": "gusto",
+      "job_count": 80,
+      "sample_title": "Benefit Customer Care Advocate ",
+      "board_name": "Gusto, Inc."
+    },
+    {
+      "name": "Carta",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "carta"
+      ],
+      "ats": "greenhouse",
+      "slug": "carta",
+      "job_count": 54,
+      "sample_title": "Alliances Marketing Manager",
+      "board_name": "Carta"
+    },
+    {
+      "name": "Navan",
+      "category": "fintech",
+      "hq": "Palo Alto",
+      "hints": [
+        "navan",
+        "tripactions"
+      ],
+      "ats": "ashby",
+      "slug": "tripactions",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Deel",
+      "category": "fintech",
+      "hq": "SF / Remote",
+      "hints": [
+        "deel"
+      ],
+      "ats": "ashby",
+      "slug": "deel",
+      "job_count": 16,
+      "sample_title": "Account Executive, MM | Greater China"
+    },
+    {
+      "name": "Block",
+      "category": "fintech",
+      "hq": "SF / Oakland",
+      "hints": [
+        "block",
+        "square"
+      ],
+      "ats": "greenhouse",
+      "slug": "block",
+      "job_count": 232,
+      "sample_title": "Account Services Manager - Franchise Growth",
+      "board_name": "Block"
+    },
+    {
+      "name": "Palantir",
+      "category": "defense-aero",
+      "hq": "Palo Alto / Denver",
+      "hints": [
+        "palantir"
+      ],
+      "ats": "lever",
+      "slug": "palantir",
+      "job_count": 222,
+      "sample_title": "Administrative Business Partner - Security"
+    },
+    {
+      "name": "Anduril",
+      "category": "defense-aero",
+      "hq": "Costa Mesa (LA)",
+      "hints": [
+        "andurilindustries",
+        "anduril"
+      ],
+      "ats": "greenhouse",
+      "slug": "andurilindustries",
+      "job_count": 2023,
+      "sample_title": "2026 Early Career Electrical Engineer",
+      "board_name": "Anduril Industries"
+    },
+    {
+      "name": "SpaceX",
+      "category": "defense-aero",
+      "hq": "Hawthorne (LA)",
+      "hints": [
+        "spacex"
+      ],
+      "ats": "greenhouse",
+      "slug": "spacex",
+      "job_count": 1739,
+      "sample_title": "Accountant, International",
+      "board_name": "SpaceX"
+    },
+    {
+      "name": "Shield AI",
+      "category": "defense-aero",
+      "hq": "San Diego",
+      "hints": [
+        "shieldai",
+        "shield-ai"
+      ],
+      "ats": "lever",
+      "slug": "shieldai",
+      "job_count": 347,
+      "sample_title": "Aerostructures Design Engineer II (R4953)"
+    },
+    {
+      "name": "Vannevar Labs",
+      "category": "defense-aero",
+      "hq": "Palo Alto",
+      "hints": [
+        "vannevarlabs",
+        "vannevar",
+        "vannevar-labs"
+      ],
+      "ats": "greenhouse",
+      "slug": "vannevarlabs",
+      "job_count": 27,
+      "sample_title": "Business Operations Manager",
+      "board_name": "Vannevar"
+    },
+    {
+      "name": "Castelion",
+      "category": "defense-aero",
+      "hq": "El Segundo (LA)",
+      "hints": [
+        "castelion"
+      ],
+      "ats": "unsupported",
+      "slug": "manatal",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Saronic",
+      "category": "defense-aero",
+      "hq": "Austin",
+      "hints": [
+        "saronic",
+        "saronictechnologies"
+      ],
+      "ats": "ashby",
+      "slug": "saronic",
+      "job_count": 275,
+      "sample_title": "Accounts Payable Specialist"
+    },
+    {
+      "name": "Epirus",
+      "category": "defense-aero",
+      "hq": "Torrance (LA)",
+      "hints": [
+        "epirus",
+        "epirusinc"
+      ],
+      "ats": "greenhouse",
+      "slug": "epirus",
+      "job_count": 36,
+      "sample_title": "Assembly Technician (Contract)",
+      "board_name": "Epirus"
+    },
+    {
+      "name": "Varda Space",
+      "category": "defense-aero",
+      "hq": "El Segundo (LA)",
+      "hints": [
+        "varda",
+        "vardaspace"
+      ],
+      "ats": "greenhouse",
+      "slug": "vardaspace",
+      "job_count": 93,
+      "sample_title": "Accounting and Finance Principal",
+      "board_name": "Varda Space Industries"
+    },
+    {
+      "name": "Impulse Space",
+      "category": "defense-aero",
+      "hq": "Redondo Beach (LA)",
+      "hints": [
+        "impulse",
+        "impulsespace",
+        "impulse-space"
+      ],
+      "ats": "ashby",
+      "slug": "impulse",
+      "job_count": 3,
+      "sample_title": "Mechanical Engineer"
+    },
+    {
+      "name": "K2 Space",
+      "category": "defense-aero",
+      "hq": "Torrance (LA)",
+      "hints": [
+        "k2space",
+        "k2-space"
+      ],
+      "ats": "greenhouse",
+      "slug": "k2spacecorporation",
+      "job_count": 148,
+      "sample_title": "All Future Mission Assignments - Avionics "
+    },
+    {
+      "name": "Hadrian",
+      "category": "defense-aero",
+      "hq": "Torrance (LA)",
+      "hints": [
+        "hadrian"
+      ],
+      "ats": "ashby",
+      "slug": "hadrian-automation",
+      "job_count": 156,
+      "sample_title": "Quality Systems Engineer"
+    },
+    {
+      "name": "Astranis",
+      "category": "defense-aero",
+      "hq": "San Francisco",
+      "hints": [
+        "astranis"
+      ],
+      "ats": "greenhouse",
+      "slug": "astranis",
+      "job_count": 134,
+      "sample_title": "Account Manager ",
+      "board_name": "Astranis"
+    },
+    {
+      "name": "Relativity Space",
+      "category": "defense-aero",
+      "hq": "Long Beach (LA)",
+      "hints": [
+        "relativity",
+        "relativityspace"
+      ],
+      "ats": "greenhouse",
+      "slug": "relativity",
+      "job_count": 296,
+      "sample_title": "Accounting Manager",
+      "board_name": "Relativity Space"
+    },
+    {
+      "name": "Rocket Lab",
+      "category": "defense-aero",
+      "hq": "Long Beach (LA)",
+      "hints": [
+        "rocketlab",
+        "rocketlabusa"
+      ],
+      "ats": "greenhouse",
+      "slug": "rocketlab",
+      "job_count": 315,
+      "sample_title": "Accounts Payables Specialist",
+      "board_name": "Rocket Lab Corporation"
+    },
+    {
+      "name": "Skydio",
+      "category": "defense-aero",
+      "hq": "San Mateo",
+      "hints": [
+        "skydio"
+      ],
+      "ats": "ashby",
+      "slug": "skydio",
+      "job_count": 123,
+      "sample_title": "Senior Autonomy Engineer, Data Curation"
+    },
+    {
+      "name": "Applied Intuition",
+      "category": "defense-aero",
+      "hq": "Mountain View",
+      "hints": [
+        "appliedintuition",
+        "applied-intuition",
+        "applied"
+      ],
+      "ats": "ashby",
+      "slug": "applied",
+      "job_count": 228,
+      "sample_title": "Training and Development Lead"
+    },
+    {
+      "name": "Chariot Defense",
+      "category": "defense-aero",
+      "hq": "Bay Area",
+      "hints": [
+        "chariotdefense",
+        "chariot"
+      ],
+      "ats": "greenhouse",
+      "slug": "chariotdefense",
+      "job_count": 7,
+      "sample_title": "Electronic Design Engineer",
+      "board_name": "Chariot Defense"
+    },
+    {
+      "name": "Waymo",
+      "category": "autonomy-robotics",
+      "hq": "Mountain View",
+      "hints": [
+        "waymo"
+      ],
+      "ats": "greenhouse",
+      "slug": "waymo",
+      "job_count": 415,
+      "sample_title": "Administrative Business Partner",
+      "board_name": "Waymo"
+    },
+    {
+      "name": "Zoox",
+      "category": "autonomy-robotics",
+      "hq": "Foster City",
+      "hints": [
+        "zoox"
+      ],
+      "ats": "lever",
+      "slug": "zoox",
+      "job_count": 220,
+      "sample_title": "AI Developer Productivity Engineer"
+    },
+    {
+      "name": "Nuro",
+      "category": "autonomy-robotics",
+      "hq": "Mountain View",
+      "hints": [
+        "nuro"
+      ],
+      "ats": "greenhouse",
+      "slug": "nuro",
+      "job_count": 107,
+      "sample_title": "Associate Fleet Technician, Bay Area (Overnight)",
+      "board_name": "Nuro"
+    },
+    {
+      "name": "Figure AI",
+      "category": "autonomy-robotics",
+      "hq": "San Jose",
+      "hints": [
+        "figure",
+        "figureai",
+        "figure-ai"
+      ],
+      "ats": "ashby",
+      "slug": "figure",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Physical Intelligence",
+      "category": "autonomy-robotics",
+      "hq": "San Francisco",
+      "hints": [
+        "physicalintelligence",
+        "physical-intelligence",
+        "pi"
+      ],
+      "ats": "ashby",
+      "slug": "physicalintelligence",
+      "job_count": 25,
+      "sample_title": "Robotics Service Technician"
+    },
+    {
+      "name": "Skild AI",
+      "category": "autonomy-robotics",
+      "hq": "SF / Pittsburgh",
+      "hints": [
+        "skild",
+        "skildai",
+        "skild-ai"
+      ],
+      "ats": "greenhouse",
+      "slug": "skildai-careers",
+      "job_count": 55,
+      "sample_title": "Camera Systems Software Engineer"
+    },
+    {
+      "name": "1X Technologies",
+      "category": "autonomy-robotics",
+      "hq": "Sunnyvale",
+      "hints": [
+        "1x",
+        "1xtech",
+        "1x-technologies"
+      ],
+      "ats": "ashby",
+      "slug": "1x",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Dexterity",
+      "category": "autonomy-robotics",
+      "hq": "Redwood City",
+      "hints": [
+        "dexterity"
+      ],
+      "ats": "lever",
+      "slug": "dexterity",
+      "job_count": 26,
+      "sample_title": "Application Support Engineer"
+    },
+    {
+      "name": "Gecko Robotics",
+      "category": "autonomy-robotics",
+      "hq": "Pittsburgh / SF",
+      "hints": [
+        "geckorobotics",
+        "gecko-robotics",
+        "gecko"
+      ],
+      "ats": "ashby",
+      "slug": "gecko-robotics",
+      "job_count": 16,
+      "sample_title": "Forward Deployed Engineer"
+    },
+    {
+      "name": "Ambience Healthcare",
+      "category": "health-wellness",
+      "hq": "San Francisco",
+      "hints": [
+        "ambience",
+        "ambiencehealthcare",
+        "ambience-healthcare"
+      ],
+      "ats": "ashby",
+      "slug": "ambiencehealthcare",
+      "job_count": 21,
+      "sample_title": "Staff Software Engineer, Product"
+    },
+    {
+      "name": "Abridge",
+      "category": "health-wellness",
+      "hq": "SF / Pittsburgh",
+      "hints": [
+        "abridge"
+      ],
+      "ats": "ashby",
+      "slug": "abridge",
+      "job_count": 60,
+      "sample_title": "Design Imagineer"
+    },
+    {
+      "name": "Hinge Health",
+      "category": "health-wellness",
+      "hq": "San Francisco",
+      "hints": [
+        "hingehealth",
+        "hinge-health"
+      ],
+      "ats": "ashby",
+      "slug": "hinge-health",
+      "job_count": 82,
+      "sample_title": "Staff Software Engineer, Growth"
+    },
+    {
+      "name": "Sword Health",
+      "category": "health-wellness",
+      "hq": "SF / Remote",
+      "hints": [
+        "swordhealth",
+        "sword-health",
+        "sword"
+      ],
+      "ats": "lever",
+      "slug": "swordhealth",
+      "job_count": 46,
+      "sample_title": "Clinical Video Annotator (Physical Therapist) - Contractor"
+    },
+    {
+      "name": "Oura",
+      "category": "health-wellness",
+      "hq": "San Francisco",
+      "hints": [
+        "oura",
+        "ouraring"
+      ],
+      "ats": "greenhouse",
+      "slug": "oura",
+      "job_count": 110,
+      "sample_title": "AI Fullstack Engineer, Health Intelligence",
+      "board_name": "\u014cura"
+    },
+    {
+      "name": "Strava",
+      "category": "health-wellness",
+      "hq": "San Francisco",
+      "hints": [
+        "strava"
+      ],
+      "ats": "ashby",
+      "slug": "strava",
+      "job_count": 26,
+      "sample_title": "Senior Product Counsel  "
+    },
+    {
+      "name": "Calm",
+      "category": "health-wellness",
+      "hq": "San Francisco",
+      "hints": [
+        "calm",
+        "calm-com"
+      ],
+      "ats": "greenhouse",
+      "slug": "calm",
+      "job_count": 1,
+      "sample_title": "B2B Marketing Manager - Consumer Partnerships ",
+      "board_name": "Calm.com"
+    },
+    {
+      "name": "Headspace",
+      "category": "health-wellness",
+      "hq": "Santa Monica (LA)",
+      "hints": [
+        "headspace"
+      ],
+      "ats": "greenhouse",
+      "slug": "hs",
+      "job_count": 38,
+      "sample_title": "Bilingual (French/English) Part Time Flex Mental Health Coach"
+    },
+    {
+      "name": "Color Health",
+      "category": "health-wellness",
+      "hq": "Burlingame",
+      "hints": [
+        "color",
+        "colorhealth",
+        "colorgenomics"
+      ],
+      "ats": "lever",
+      "slug": "color",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Freenome",
+      "category": "health-wellness",
+      "hq": "South SF",
+      "hints": [
+        "freenome"
+      ],
+      "ats": "greenhouse",
+      "slug": "freenome",
+      "job_count": 23,
+      "sample_title": "Clinical Research Associate (Contractor)",
+      "board_name": "Freenome"
+    },
+    {
+      "name": "Insitro",
+      "category": "health-wellness",
+      "hq": "South SF",
+      "hints": [
+        "insitro"
+      ],
+      "ats": "ashby",
+      "slug": "insitro",
+      "job_count": 10,
+      "sample_title": "VP, Bioassays, Cell Models, and Genomic Screening"
+    },
+    {
+      "name": "Verily",
+      "category": "health-wellness",
+      "hq": "South SF",
+      "hints": [
+        "verily",
+        "verilylifesciences"
+      ],
+      "ats": "unsupported",
+      "slug": "workday:verily/Verily_Careers",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Function Health",
+      "category": "health-wellness",
+      "hq": "Austin / Remote",
+      "hints": [
+        "function",
+        "functionhealth",
+        "function-health"
+      ],
+      "ats": "unsupported",
+      "slug": "gem",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Netflix",
+      "category": "big-tech",
+      "hq": "Los Gatos",
+      "hints": [
+        "netflix"
+      ],
+      "ats": "lever",
+      "slug": "netflix",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Nvidia",
+      "category": "big-tech",
+      "hq": "Santa Clara",
+      "hints": [
+        "nvidia"
+      ],
+      "ats": "not_found",
+      "slug": "",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Roblox",
+      "category": "big-tech",
+      "hq": "San Mateo",
+      "hints": [
+        "roblox"
+      ],
+      "ats": "greenhouse",
+      "slug": "roblox",
+      "job_count": 219,
+      "sample_title": "[2026] Applied Scientist - PhD Intern",
+      "board_name": "Roblox"
+    },
+    {
+      "name": "Discord",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "discord"
+      ],
+      "ats": "greenhouse",
+      "slug": "discord",
+      "job_count": 67,
+      "sample_title": "Account Executive - Japan",
+      "board_name": "Discord"
+    },
+    {
+      "name": "Reddit",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "reddit"
+      ],
+      "ats": "ashby",
+      "slug": "reddit",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Cloudflare",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "cloudflare"
+      ],
+      "ats": "greenhouse",
+      "slug": "cloudflare",
+      "job_count": 177,
+      "sample_title": "Business Analyst Intern, Marketing (July to December 2026)",
+      "board_name": "Cloudflare"
+    },
+    {
+      "name": "DoorDash",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "doordash",
+        "doordashusa"
+      ],
+      "ats": "greenhouse",
+      "slug": "doordashusa",
+      "job_count": 450,
+      "sample_title": "Account Development Executive",
+      "board_name": "DoorDash USA"
+    },
+    {
+      "name": "Instacart",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "instacart"
+      ],
+      "ats": "greenhouse",
+      "slug": "instacart",
+      "job_count": 152,
+      "sample_title": "Account Manager",
+      "board_name": "Instacart"
+    },
+    {
+      "name": "Pinterest",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "pinterest"
+      ],
+      "ats": "greenhouse",
+      "slug": "pinterest",
+      "job_count": 171,
+      "sample_title": "Accountant II, Reporting & Consolidation ",
+      "board_name": "Pinterest"
+    },
+    {
+      "name": "Airbnb",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "airbnb"
+      ],
+      "ats": "greenhouse",
+      "slug": "airbnb",
+      "job_count": 223,
+      "sample_title": "Account Executive (12 Month FTC)",
+      "board_name": "Airbnb"
+    },
+    {
+      "name": "Uber",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "uber"
+      ],
+      "ats": "smartrecruiters",
+      "slug": "uber",
+      "job_count": 1,
+      "sample_title": "Test UAT"
+    },
+    {
+      "name": "Lyft",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "lyft"
+      ],
+      "ats": "greenhouse",
+      "slug": "lyft",
+      "job_count": 138,
+      "sample_title": "Accountant, Insurance and Investments",
+      "board_name": "Lyft"
+    },
+    {
+      "name": "Twilio",
+      "category": "big-tech",
+      "hq": "SF / Remote",
+      "hints": [
+        "twilio"
+      ],
+      "ats": "greenhouse",
+      "slug": "twilio",
+      "job_count": 147,
+      "sample_title": "Account Executive 4",
+      "board_name": "Twilio"
+    },
+    {
+      "name": "Dropbox",
+      "category": "big-tech",
+      "hq": "SF / Remote",
+      "hints": [
+        "dropbox"
+      ],
+      "ats": "greenhouse",
+      "slug": "dropbox",
+      "job_count": 61,
+      "sample_title": "Data Engineer",
+      "board_name": "Dropbox"
+    },
+    {
+      "name": "Twitch",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "twitch"
+      ],
+      "ats": "greenhouse",
+      "slug": "twitch",
+      "job_count": 60,
+      "sample_title": "Finance Manager, Corp FP&A",
+      "board_name": "Twitch"
+    },
+    {
+      "name": "Tesla",
+      "category": "big-tech",
+      "hq": "Palo Alto / Fremont",
+      "hints": [
+        "tesla"
+      ],
+      "ats": "not_found",
+      "slug": "",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Rivian",
+      "category": "big-tech",
+      "hq": "Irvine / Palo Alto",
+      "hints": [
+        "rivian"
+      ],
+      "ats": "not_found",
+      "slug": "",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Snap",
+      "category": "la",
+      "hq": "Santa Monica (LA)",
+      "hints": [
+        "snap",
+        "snapchat"
+      ],
+      "ats": "not_found",
+      "slug": "",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Whatnot",
+      "category": "la",
+      "hq": "LA / SF",
+      "hints": [
+        "whatnot"
+      ],
+      "ats": "ashby",
+      "slug": "whatnot",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Riot Games",
+      "category": "la",
+      "hq": "LA",
+      "hints": [
+        "riotgames",
+        "riot-games",
+        "riot"
+      ],
+      "ats": "greenhouse",
+      "slug": "riotgames",
+      "job_count": 180,
+      "sample_title": "APAC Esports Partnership Manager",
+      "board_name": "Riot Games"
+    },
+    {
+      "name": "ServiceTitan",
+      "category": "la",
+      "hq": "Glendale (LA)",
+      "hints": [
+        "servicetitan"
+      ],
+      "ats": "smartrecruiters",
+      "slug": "servicetitan",
+      "job_count": 8,
+      "sample_title": "Business Development Representative"
+    },
+    {
+      "name": "Match Group",
+      "category": "la",
+      "hq": "LA / Dallas",
+      "hints": [
+        "matchgroup",
+        "match",
+        "tinder"
+      ],
+      "ats": "lever",
+      "slug": "matchgroup",
+      "job_count": 74,
+      "sample_title": "Account Manager (Advertising)"
+    },
+    {
+      "name": "HeyGen",
+      "category": "la",
+      "hq": "LA / SF",
+      "hints": [
+        "heygen"
+      ],
+      "ats": "greenhouse",
+      "slug": "heygen",
+      "job_count": 21,
+      "sample_title": "B2B Field Marketer",
+      "board_name": "HeyGen"
+    },
+    {
+      "name": "Moonvalley",
+      "category": "la",
+      "hq": "LA / Toronto",
+      "hints": [
+        "moonvalley"
+      ],
+      "ats": "ashby",
+      "slug": "moonvalley-ai",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Qualcomm",
+      "category": "san-diego",
+      "hq": "San Diego",
+      "hints": [
+        "qualcomm"
+      ],
+      "ats": "not_found",
+      "slug": "",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "ClickUp",
+      "category": "san-diego",
+      "hq": "San Diego",
+      "hints": [
+        "clickup"
+      ],
+      "ats": "ashby",
+      "slug": "clickup",
+      "job_count": 60,
+      "sample_title": "RVP Commercial Sales- EMEA"
+    },
+    {
+      "name": "Brain Corp",
+      "category": "san-diego",
+      "hq": "San Diego",
+      "hints": [
+        "braincorp",
+        "brain-corp",
+        "braincorporation"
+      ],
+      "ats": "greenhouse",
+      "slug": "braincorporation",
+      "job_count": 22,
+      "sample_title": "Principal Software Engineer, Cloud",
+      "board_name": "Brain Corp"
+    },
+    {
+      "name": "Seismic",
+      "category": "san-diego",
+      "hq": "San Diego",
+      "hints": [
+        "seismic",
+        "seismicsoftware"
+      ],
+      "ats": "unsupported",
+      "slug": "custom",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Intuit",
+      "category": "san-diego",
+      "hq": "Mountain View / San Diego",
+      "hints": [
+        "intuit"
+      ],
+      "ats": "not_found",
+      "slug": "",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Luma AI",
+      "category": "gen-media",
+      "hq": "Palo Alto",
+      "hints": [
+        "lumaai",
+        "luma-ai",
+        "luma"
+      ],
+      "ats": "ashby",
+      "slug": "lumaai",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Pika",
+      "category": "gen-media",
+      "hq": "Palo Alto",
+      "hints": [
+        "pika",
+        "pikalabs",
+        "pika-labs"
+      ],
+      "ats": "ashby",
+      "slug": "pika",
+      "job_count": 4,
+      "sample_title": "Senior Software Engineer, Backend"
+    },
+    {
+      "name": "Midjourney",
+      "category": "gen-media",
+      "hq": "San Francisco",
+      "hints": [
+        "midjourney"
+      ],
+      "ats": "unsupported",
+      "slug": "breezy",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Ideogram",
+      "category": "gen-media",
+      "hq": "SF / Toronto",
+      "hints": [
+        "ideogram",
+        "ideogramai",
+        "ideogram-ai"
+      ],
+      "ats": "ashby",
+      "slug": "ideogram",
+      "job_count": 8,
+      "sample_title": "Founding Product Manager"
+    },
+    {
+      "name": "Captions",
+      "category": "gen-media",
+      "hq": "NYC / SF",
+      "hints": [
+        "captions"
+      ],
+      "ats": "ashby",
+      "slug": "mirage",
+      "job_count": 16,
+      "sample_title": "Product Designer, Early Career"
+    },
+    {
+      "name": "Inworld AI",
+      "category": "gen-media",
+      "hq": "Mountain View",
+      "hints": [
+        "inworld",
+        "inworldai",
+        "inworld-ai"
+      ],
+      "ats": "ashby",
+      "slug": "inworld-ai",
+      "job_count": 19,
+      "sample_title": "Staff / Principal Research Scientist - USA"
+    },
+    {
+      "name": "Vanta",
+      "category": "security",
+      "hq": "San Francisco",
+      "hints": [
+        "vanta"
+      ],
+      "ats": "ashby",
+      "slug": "vanta",
+      "job_count": 118,
+      "sample_title": "Staff Data Engineer"
+    },
+    {
+      "name": "Abnormal Security",
+      "category": "security",
+      "hq": "SF / Remote",
+      "hints": [
+        "abnormalsecurity",
+        "abnormal",
+        "abnormal-security"
+      ],
+      "ats": "greenhouse",
+      "slug": "abnormalsecurity",
+      "job_count": 78,
+      "sample_title": "AI Product Engineer",
+      "board_name": "Abnormal"
+    },
+    {
+      "name": "Material Security",
+      "category": "security",
+      "hq": "Bay Area",
+      "hints": [
+        "materialsecurity",
+        "material",
+        "material-security"
+      ],
+      "ats": "ashby",
+      "slug": "materialsecurity",
+      "job_count": 6,
+      "sample_title": "Strategic Alliances Lead"
+    },
+    {
+      "name": "Chainguard",
+      "category": "security",
+      "hq": "Remote",
+      "hints": [
+        "chainguard"
+      ],
+      "ats": "greenhouse",
+      "slug": "chainguard",
+      "job_count": 62,
+      "sample_title": "Business Development Representative - Benelux",
+      "board_name": "Chainguard"
+    },
+    {
+      "name": "Tailscale",
+      "category": "security",
+      "hq": "Remote",
+      "hints": [
+        "tailscale"
+      ],
+      "ats": "greenhouse",
+      "slug": "tailscale",
+      "job_count": 42,
+      "sample_title": "Business Operations & Strategy Manager",
+      "board_name": ""
+    },
+    {
+      "name": "Semgrep",
+      "category": "security",
+      "hq": "San Francisco",
+      "hints": [
+        "semgrep",
+        "returntocorp",
+        "r2c"
+      ],
+      "ats": "ashby",
+      "slug": "semgrep",
+      "job_count": 30,
+      "sample_title": "Senior/Staff Product Manager"
+    },
+    {
+      "name": "Partiful",
+      "category": "consumer",
+      "hq": "NYC",
+      "hints": [
+        "partiful"
+      ],
+      "ats": "ashby",
+      "slug": "partiful",
+      "job_count": 12,
+      "sample_title": "\ud83c\udfa8 Graphic Designer"
+    },
+    {
+      "name": "Beli",
+      "category": "consumer",
+      "hq": "NYC",
+      "hints": [
+        "beli",
+        "beliapp"
+      ],
+      "ats": "unsupported",
+      "slug": "breezy",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "World Labs",
+      "category": "frontier-lab",
+      "hq": "San Francisco",
+      "hints": [
+        "worldlabs",
+        "world-labs"
+      ],
+      "ats": "greenhouse",
+      "slug": "worldlabs",
+      "job_count": 14,
+      "sample_title": "Pipeline Engineer (Graphics/3D)",
+      "board_name": "World Labs"
+    },
+    {
+      "name": "Periodic Labs",
+      "category": "frontier-lab",
+      "hq": "San Francisco",
+      "hints": [
+        "periodiclabs",
+        "periodic"
+      ],
+      "ats": "ashby",
+      "slug": "periodic-labs",
+      "job_count": 24,
+      "sample_title": "Research Scientist, Materials Synthesis"
+    },
+    {
+      "name": "humans&",
+      "category": "frontier-lab",
+      "hq": "San Francisco",
+      "hints": [
+        "humansand",
+        "humans-and",
+        "humansamp"
+      ],
+      "ats": "ashby",
+      "slug": "humans-and",
+      "job_count": 3,
+      "sample_title": "Member of Technical Staff"
+    },
+    {
+      "name": "Goodfire",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "goodfire"
+      ],
+      "ats": "greenhouse",
+      "slug": "goodfire",
+      "job_count": 17,
+      "sample_title": "Brand & Growth Lead",
+      "board_name": "Goodfire"
+    },
+    {
+      "name": "Inferact",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "inferact"
+      ],
+      "ats": "ashby",
+      "slug": "inferact",
+      "job_count": 5,
+      "sample_title": "Member of Technical Staff, Inference"
+    },
+    {
+      "name": "Reka AI",
+      "category": "frontier-lab",
+      "hq": "Sunnyvale",
+      "hints": [
+        "reka",
+        "rekaai"
+      ],
+      "ats": "ashby",
+      "slug": "reka",
+      "job_count": 6,
+      "sample_title": "Member of Technical Staff (ML)"
+    },
+    {
+      "name": "Cohere",
+      "category": "frontier-lab",
+      "hq": "SF (US office)",
+      "hints": [
+        "cohere"
+      ],
+      "ats": "ashby",
+      "slug": "cohere",
+      "job_count": 126,
+      "sample_title": "RevOps Analyst (Analytics)"
+    },
+    {
+      "name": "LMArena",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "lmarena",
+        "arena"
+      ],
+      "ats": "ashby",
+      "slug": "arena",
+      "job_count": 16,
+      "sample_title": "Technical Recruiter"
+    },
+    {
+      "name": "Surge AI",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "surgeai",
+        "surge",
+        "surge-ai"
+      ],
+      "ats": "ashby",
+      "slug": "surge-ai",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Axiom Math",
+      "category": "ai-vertical",
+      "hq": "Palo Alto",
+      "hints": [
+        "axiommath",
+        "axiom"
+      ],
+      "ats": "ashby",
+      "slug": "axiommath",
+      "job_count": 1,
+      "sample_title": "Member of Technical Staff"
+    },
+    {
+      "name": "Harmonic",
+      "category": "ai-vertical",
+      "hq": "Palo Alto",
+      "hints": [
+        "harmonic",
+        "harmonicmath"
+      ],
+      "ats": "ashby",
+      "slug": "harmonic",
+      "job_count": 8,
+      "sample_title": "Research Engineer"
+    },
+    {
+      "name": "SandboxAQ",
+      "category": "ai-vertical",
+      "hq": "Palo Alto",
+      "hints": [
+        "sandboxaq"
+      ],
+      "ats": "ashby",
+      "slug": "sandboxaq",
+      "job_count": 30,
+      "sample_title": "Director of Product Management, AI Generation Engine"
+    },
+    {
+      "name": "Decart",
+      "category": "gen-media",
+      "hq": "San Francisco",
+      "hints": [
+        "decart",
+        "decartai"
+      ],
+      "ats": "ashby",
+      "slug": "decart-ai",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Chai Discovery",
+      "category": "ai-vertical",
+      "hq": "San Francisco",
+      "hints": [
+        "chaidiscovery",
+        "chai"
+      ],
+      "ats": "ashby",
+      "slug": "chaidiscovery",
+      "job_count": 13,
+      "sample_title": "Research Engineer"
+    },
+    {
+      "name": "Genspark",
+      "category": "ai-agents",
+      "hq": "Palo Alto",
+      "hints": [
+        "genspark",
+        "mainfunc"
+      ],
+      "ats": "ashby",
+      "slug": "genspark",
+      "job_count": 1,
+      "sample_title": "Accounting Lead"
+    },
+    {
+      "name": "StackBlitz",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "stackblitz"
+      ],
+      "ats": "greenhouse",
+      "slug": "stackblitz",
+      "job_count": 11,
+      "sample_title": "Community Manager ",
+      "board_name": "Bolt.new"
+    },
+    {
+      "name": "Resolve AI",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "resolveai",
+        "resolve-ai"
+      ],
+      "ats": "ashby",
+      "slug": "Resolve%20AI",
+      "job_count": 17,
+      "sample_title": "Staff+ Software Engineer - Backend"
+    },
+    {
+      "name": "You.com",
+      "category": "ai-agents",
+      "hq": "Palo Alto",
+      "hints": [
+        "youdotcom",
+        "you",
+        "youcom"
+      ],
+      "ats": "greenhouse",
+      "slug": "youcom",
+      "job_count": 10,
+      "sample_title": "Data Engineer",
+      "board_name": "You.com"
+    },
+    {
+      "name": "Augment Code",
+      "category": "ai-agents",
+      "hq": "Palo Alto",
+      "hints": [
+        "augmentcode",
+        "augment"
+      ],
+      "ats": "greenhouse",
+      "slug": "augmentcomputing",
+      "job_count": 3,
+      "sample_title": "Applied AI Engineer"
+    },
+    {
+      "name": "Rox",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "rox",
+        "roxai"
+      ],
+      "ats": "ashby",
+      "slug": "Rox-Data-Corp",
+      "job_count": 20,
+      "sample_title": "Growth Strategy Lead"
+    },
+    {
+      "name": "Artisan",
+      "category": "ai-agents",
+      "hq": "San Francisco",
+      "hints": [
+        "artisan",
+        "artisanai"
+      ],
+      "ats": "ashby",
+      "slug": "artisan",
+      "job_count": 9,
+      "sample_title": "Growth"
+    },
+    {
+      "name": "Motion",
+      "category": "ai-agents",
+      "hq": "Mountain View",
+      "hints": [
+        "motion",
+        "usemotion"
+      ],
+      "ats": "unsupported",
+      "slug": "custom",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Gem",
+      "category": "ai-vertical",
+      "hq": "San Francisco",
+      "hints": [
+        "gem",
+        "gemsoftware"
+      ],
+      "ats": "unsupported",
+      "slug": "gem",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Listen Labs",
+      "category": "ai-vertical",
+      "hq": "San Francisco",
+      "hints": [
+        "listenlabs",
+        "listen"
+      ],
+      "ats": "ashby",
+      "slug": "listenlabs",
+      "job_count": 20,
+      "sample_title": "Member of Technical Staff, Product"
+    },
+    {
+      "name": "Simile",
+      "category": "ai-vertical",
+      "hq": "Palo Alto",
+      "hints": [
+        "simile"
+      ],
+      "ats": "ashby",
+      "slug": "simile",
+      "job_count": 6,
+      "sample_title": "Forward Deployed Engineer - Member of Technical Staff"
+    },
+    {
+      "name": "Elicit",
+      "category": "ai-vertical",
+      "hq": "Oakland",
+      "hints": [
+        "elicit"
+      ],
+      "ats": "ashby",
+      "slug": "elicit",
+      "job_count": 13,
+      "sample_title": "General interest"
+    },
+    {
+      "name": "EvenUp",
+      "category": "ai-vertical",
+      "hq": "San Francisco",
+      "hints": [
+        "evenup",
+        "evenuplaw"
+      ],
+      "ats": "ashby",
+      "slug": "evenup",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Eve",
+      "category": "ai-vertical",
+      "hq": "San Mateo",
+      "hints": [
+        "eve",
+        "evelegal"
+      ],
+      "ats": "greenhouse",
+      "slug": "eve",
+      "job_count": 33,
+      "sample_title": "Account Executive, Commercial",
+      "board_name": "Eve"
+    },
+    {
+      "name": "Ironclad",
+      "category": "ai-vertical",
+      "hq": "San Francisco",
+      "hints": [
+        "ironclad"
+      ],
+      "ats": "ashby",
+      "slug": "ironcladhq",
+      "job_count": 43,
+      "sample_title": "Business Development Representative"
+    },
+    {
+      "name": "Peregrine Technologies",
+      "category": "ai-vertical",
+      "hq": "San Francisco",
+      "hints": [
+        "peregrine",
+        "peregrinetechnologies"
+      ],
+      "ats": "greenhouse",
+      "slug": "peregrinetechnologies",
+      "job_count": 49,
+      "sample_title": "Applied AI Engineering Lead",
+      "board_name": "Peregrine Technologies"
+    },
+    {
+      "name": "Observe.AI",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "observeai",
+        "observe-ai",
+        "observe"
+      ],
+      "ats": "greenhouse",
+      "slug": "observeai",
+      "job_count": 21,
+      "sample_title": "AI Agent Engineer, Client Facing",
+      "board_name": "Observe.AI"
+    },
+    {
+      "name": "Sanas",
+      "category": "voice-ai",
+      "hq": "Palo Alto",
+      "hints": [
+        "sanas",
+        "sanasai"
+      ],
+      "ats": "unsupported",
+      "slug": "rippling-ats",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Krisp",
+      "category": "voice-ai",
+      "hq": "Berkeley",
+      "hints": [
+        "krisp"
+      ],
+      "ats": "unsupported",
+      "slug": "custom",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Assort Health",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "assorthealth",
+        "assort"
+      ],
+      "ats": "ashby",
+      "slug": "assorthealth",
+      "job_count": 33,
+      "sample_title": "Sales Development Representative"
+    },
+    {
+      "name": "Salient",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "salient",
+        "salientai"
+      ],
+      "ats": "ashby",
+      "slug": "salient",
+      "job_count": 8,
+      "sample_title": "Sr Software Engineer, Product"
+    },
+    {
+      "name": "Toma",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "toma"
+      ],
+      "ats": "ashby",
+      "slug": "toma",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "HappyRobot",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "happyrobot"
+      ],
+      "ats": "ashby",
+      "slug": "happyrobot.ai",
+      "job_count": 78,
+      "sample_title": "Forward Deployed Engineer"
+    },
+    {
+      "name": "Giga",
+      "category": "voice-ai",
+      "hq": "San Francisco",
+      "hints": [
+        "giga",
+        "gigaml"
+      ],
+      "ats": "ashby",
+      "slug": "gigaml",
+      "job_count": 54,
+      "sample_title": "Staff Frontend Infrastructure Engineer"
+    },
+    {
+      "name": "Krea",
+      "category": "gen-media",
+      "hq": "San Francisco",
+      "hints": [
+        "krea",
+        "kreaai"
+      ],
+      "ats": "ashby",
+      "slug": "krea",
+      "job_count": 14,
+      "sample_title": "Backend Engineer"
+    },
+    {
+      "name": "Higgsfield AI",
+      "category": "gen-media",
+      "hq": "San Francisco",
+      "hints": [
+        "higgsfield"
+      ],
+      "ats": "ashby",
+      "slug": "higgsfieldai",
+      "job_count": 35,
+      "sample_title": "AI Educator"
+    },
+    {
+      "name": "Tavus",
+      "category": "gen-media",
+      "hq": "San Francisco",
+      "hints": [
+        "tavus"
+      ],
+      "ats": "ashby",
+      "slug": "tavus",
+      "job_count": 9,
+      "sample_title": "Customer Engineer"
+    },
+    {
+      "name": "Descript",
+      "category": "gen-media",
+      "hq": "San Francisco",
+      "hints": [
+        "descript"
+      ],
+      "ats": "greenhouse",
+      "slug": "descript",
+      "job_count": 7,
+      "sample_title": "Director, Customer Success",
+      "board_name": "Descript"
+    },
+    {
+      "name": "Typeface",
+      "category": "gen-media",
+      "hq": "Palo Alto",
+      "hints": [
+        "typeface"
+      ],
+      "ats": "greenhouse",
+      "slug": "typeface",
+      "job_count": 23,
+      "sample_title": "Business Development Representative ",
+      "board_name": "Typeface"
+    },
+    {
+      "name": "Fal",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "fal",
+        "falai"
+      ],
+      "ats": "greenhouse",
+      "slug": "fal",
+      "job_count": 45,
+      "sample_title": "Account Executive, Enterprise ",
+      "board_name": "fal"
+    },
+    {
+      "name": "Modular",
+      "category": "ai-infra",
+      "hq": "Los Altos",
+      "hints": [
+        "modular"
+      ],
+      "ats": "greenhouse",
+      "slug": "modularai",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "ClickHouse",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "clickhouse"
+      ],
+      "ats": "ashby",
+      "slug": "clickhouse",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Redpanda",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "redpanda",
+        "redpandadata"
+      ],
+      "ats": "greenhouse",
+      "slug": "redpandadata",
+      "job_count": 20,
+      "sample_title": "AI Agent Engineer (Poland)",
+      "board_name": "Redpanda Data"
+    },
+    {
+      "name": "WorkOS",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "workos"
+      ],
+      "ats": "ashby",
+      "slug": "workos",
+      "job_count": 29,
+      "sample_title": "Site Reliability Engineer"
+    },
+    {
+      "name": "Snorkel AI",
+      "category": "ai-infra",
+      "hq": "Redwood City",
+      "hints": [
+        "snorkel",
+        "snorkelai"
+      ],
+      "ats": "greenhouse",
+      "slug": "snorkelai",
+      "job_count": 44,
+      "sample_title": "Account Executive-  Data as a Service",
+      "board_name": "Snorkel AI"
+    },
+    {
+      "name": "Parallel Web Systems",
+      "category": "ai-infra",
+      "hq": "Palo Alto",
+      "hints": [
+        "parallel",
+        "parallelweb"
+      ],
+      "ats": "ashby",
+      "slug": "parallel",
+      "job_count": 21,
+      "sample_title": "Member of Technical Staff, AI"
+    },
+    {
+      "name": "Exa",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "exa",
+        "exa-ai",
+        "exalabs"
+      ],
+      "ats": "ashby",
+      "slug": "exa",
+      "job_count": 36,
+      "sample_title": "Account Executive"
+    },
+    {
+      "name": "Reducto",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "reducto",
+        "reductoai"
+      ],
+      "ats": "ashby",
+      "slug": "reducto",
+      "job_count": 35,
+      "sample_title": "Founding Product Manager"
+    },
+    {
+      "name": "Turing",
+      "category": "ai-infra",
+      "hq": "Palo Alto",
+      "hints": [
+        "turing"
+      ],
+      "ats": "greenhouse",
+      "slug": "turing",
+      "job_count": 23,
+      "sample_title": "AI Engineering Lead",
+      "board_name": "Turing"
+    },
+    {
+      "name": "Labelbox",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "labelbox"
+      ],
+      "ats": "greenhouse",
+      "slug": "labelbox",
+      "job_count": 14,
+      "sample_title": "Applied Research Engineer, Agents",
+      "board_name": "Labelbox"
+    },
+    {
+      "name": "Twelve Labs",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "twelvelabs",
+        "twelve-labs"
+      ],
+      "ats": "ashby",
+      "slug": "twelve-labs",
+      "job_count": 33,
+      "sample_title": "Senior Engineering Manager, ML Data"
+    },
+    {
+      "name": "Contextual AI",
+      "category": "ai-infra",
+      "hq": "Mountain View",
+      "hints": [
+        "contextualai",
+        "contextual-ai",
+        "contextual"
+      ],
+      "ats": "greenhouse",
+      "slug": "contextualai",
+      "job_count": 0,
+      "sample_title": "",
+      "board_name": "Contextual AI"
+    },
+    {
+      "name": "LanceDB",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "lancedb"
+      ],
+      "ats": "ashby",
+      "slug": "lancedb",
+      "job_count": 5,
+      "sample_title": "Senior Product Manager"
+    },
+    {
+      "name": "Virtue AI",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "virtueai",
+        "virtue-ai"
+      ],
+      "ats": "ashby",
+      "slug": "virtue-ai",
+      "job_count": 8,
+      "sample_title": "Research Scientist - Post-training, Inference, & Safety and Security"
+    },
+    {
+      "name": "Tenstorrent",
+      "category": "ai-infra",
+      "hq": "Santa Clara",
+      "hints": [
+        "tenstorrent"
+      ],
+      "ats": "greenhouse",
+      "slug": "tenstorrent",
+      "job_count": 119,
+      "sample_title": "Advanced Packaging Process Engineer",
+      "board_name": "Tenstorrent"
+    },
+    {
+      "name": "d-Matrix",
+      "category": "ai-infra",
+      "hq": "Santa Clara",
+      "hints": [
+        "dmatrix",
+        "d-matrix"
+      ],
+      "ats": "ashby",
+      "slug": "d-matrix",
+      "job_count": 41,
+      "sample_title": "Compute Design Engineer, Principal"
+    },
+    {
+      "name": "Celestial AI",
+      "category": "ai-infra",
+      "hq": "Santa Clara",
+      "hints": [
+        "celestialai",
+        "celestial-ai"
+      ],
+      "ats": "greenhouse",
+      "slug": "celestialai",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Lightmatter",
+      "category": "ai-infra",
+      "hq": "Mountain View",
+      "hints": [
+        "lightmatter"
+      ],
+      "ats": "greenhouse",
+      "slug": "lightmatter",
+      "job_count": 45,
+      "sample_title": "Analog IC Design Engineer, AMS",
+      "board_name": "Lightmatter"
+    },
+    {
+      "name": "SiMa.ai",
+      "category": "ai-infra",
+      "hq": "San Jose",
+      "hints": [
+        "simaai",
+        "sima",
+        "sima-ai"
+      ],
+      "ats": "unsupported",
+      "slug": "jobvite",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Nexthop AI",
+      "category": "ai-infra",
+      "hq": "Santa Clara",
+      "hints": [
+        "nexthop",
+        "nexthopai"
+      ],
+      "ats": "unsupported",
+      "slug": "bamboohr",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Armada",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "armada",
+        "armadaai"
+      ],
+      "ats": "greenhouse",
+      "slug": "armada",
+      "job_count": 65,
+      "sample_title": "AI Engineer",
+      "board_name": "Armada"
+    },
+    {
+      "name": "Unconventional AI",
+      "category": "ai-infra",
+      "hq": "San Diego",
+      "hints": [
+        "unconventional",
+        "unconventionalai"
+      ],
+      "ats": "greenhouse",
+      "slug": "unconventionalinc",
+      "job_count": 12,
+      "sample_title": "AI Hardware Architecture"
+    },
+    {
+      "name": "Cribl",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "cribl"
+      ],
+      "ats": "greenhouse",
+      "slug": "cribl",
+      "job_count": 56,
+      "sample_title": "Commercial Sales Representative, NYC Metro",
+      "board_name": "Cribl"
+    },
+    {
+      "name": "Hightouch",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "hightouch"
+      ],
+      "ats": "ashby",
+      "slug": "hightouch",
+      "job_count": 1,
+      "sample_title": "Backend Engineer, Platform"
+    },
+    {
+      "name": "Fivetran",
+      "category": "ai-infra",
+      "hq": "Oakland",
+      "hints": [
+        "fivetran"
+      ],
+      "ats": "greenhouse",
+      "slug": "fivetran",
+      "job_count": 112,
+      "sample_title": "Account Executive, Commercial",
+      "board_name": "Fivetran "
+    },
+    {
+      "name": "Coactive AI",
+      "category": "ai-infra",
+      "hq": "San Jose",
+      "hints": [
+        "coactive",
+        "coactiveai"
+      ],
+      "ats": "ashby",
+      "slug": "coactive",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Rescale",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "rescale"
+      ],
+      "ats": "ashby",
+      "slug": "rescale",
+      "job_count": 13,
+      "sample_title": "Enterprise Account Executive (Remote)"
+    },
+    {
+      "name": "VAST Data",
+      "category": "ai-infra",
+      "hq": "Santa Clara",
+      "hints": [
+        "vastdata",
+        "vast-data"
+      ],
+      "ats": "ashby",
+      "slug": "vast",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Firecrawl",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "firecrawl",
+        "mendable"
+      ],
+      "ats": "ashby",
+      "slug": "firecrawl",
+      "job_count": 19,
+      "sample_title": "Design Engineer"
+    },
+    {
+      "name": "Mem0",
+      "category": "ai-infra",
+      "hq": "San Francisco",
+      "hints": [
+        "mem0"
+      ],
+      "ats": "ashby",
+      "slug": "mem0",
+      "job_count": 5,
+      "sample_title": "Applied AI Engineer"
+    },
+    {
+      "name": "Gatik",
+      "category": "autonomy-robotics",
+      "hq": "Mountain View",
+      "hints": [
+        "gatik"
+      ],
+      "ats": "greenhouse",
+      "slug": "gatikaiinc",
+      "job_count": 59,
+      "sample_title": "AI Operations & RAG Architect"
+    },
+    {
+      "name": "Zipline",
+      "category": "autonomy-robotics",
+      "hq": "South San Francisco",
+      "hints": [
+        "zipline",
+        "flyzipline"
+      ],
+      "ats": "greenhouse",
+      "slug": "flyzipline",
+      "job_count": 230,
+      "sample_title": "3D Perception Engineer - Autonomy (Droid)",
+      "board_name": "Zipline "
+    },
+    {
+      "name": "The Bot Company",
+      "category": "autonomy-robotics",
+      "hq": "San Francisco",
+      "hints": [
+        "thebotcompany",
+        "botcompany",
+        "bot"
+      ],
+      "ats": "ashby",
+      "slug": "thebotcompany",
+      "job_count": 11,
+      "sample_title": "Mechanical"
+    },
+    {
+      "name": "Field AI",
+      "category": "autonomy-robotics",
+      "hq": "Irvine (LA)",
+      "hints": [
+        "fieldai",
+        "field-ai"
+      ],
+      "ats": "lever",
+      "slug": "field-ai",
+      "job_count": 92,
+      "sample_title": "1.10 Software Engineer, Human-Robot Interaction"
+    },
+    {
+      "name": "Mind Robotics",
+      "category": "autonomy-robotics",
+      "hq": "Palo Alto",
+      "hints": [
+        "mindrobotics",
+        "mind-robotics"
+      ],
+      "ats": "ashby",
+      "slug": "mindrobotics",
+      "job_count": 18,
+      "sample_title": "Research + Modeling"
+    },
+    {
+      "name": "Rhoda AI",
+      "category": "autonomy-robotics",
+      "hq": "Palo Alto",
+      "hints": [
+        "rhoda",
+        "rhodaai"
+      ],
+      "ats": "ashby",
+      "slug": "rhoda-ai",
+      "job_count": 34,
+      "sample_title": "Director of Marketing and Communications"
+    },
+    {
+      "name": "Sunday Robotics",
+      "category": "autonomy-robotics",
+      "hq": "Mountain View",
+      "hints": [
+        "sunday",
+        "sundayrobotics"
+      ],
+      "ats": "ashby",
+      "slug": "sunday",
+      "job_count": 28,
+      "sample_title": "3D Character Animator (6 month contract)"
+    },
+    {
+      "name": "Lightwheel",
+      "category": "autonomy-robotics",
+      "hq": "Santa Clara",
+      "hints": [
+        "lightwheel"
+      ],
+      "ats": "ashby",
+      "slug": "lightwheel",
+      "job_count": 5,
+      "sample_title": "Go-To-Market / Techincal Sales Manager"
+    },
+    {
+      "name": "Bedrock Robotics",
+      "category": "autonomy-robotics",
+      "hq": "San Francisco",
+      "hints": [
+        "bedrockrobotics",
+        "bedrock"
+      ],
+      "ats": "greenhouse",
+      "slug": "bedrockrobotics",
+      "job_count": 0,
+      "sample_title": "",
+      "board_name": "Bedrock Robotics"
+    },
+    {
+      "name": "Generalist AI",
+      "category": "autonomy-robotics",
+      "hq": "San Mateo",
+      "hints": [
+        "generalist",
+        "generalistai"
+      ],
+      "ats": "ashby",
+      "slug": "generalist",
+      "job_count": 15,
+      "sample_title": "Software Engineer: ML Robotics Systems"
+    },
+    {
+      "name": "Mytra",
+      "category": "autonomy-robotics",
+      "hq": "Brisbane CA",
+      "hints": [
+        "mytra"
+      ],
+      "ats": "unsupported",
+      "slug": "rippling-ats",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Genesis AI",
+      "category": "autonomy-robotics",
+      "hq": "Palo Alto",
+      "hints": [
+        "genesisai",
+        "genesis"
+      ],
+      "ats": "ashby",
+      "slug": "genesis",
+      "job_count": 32,
+      "sample_title": "Member of Technical Staff, Foundation Models (Bay Area)"
+    },
+    {
+      "name": "Coco Robotics",
+      "category": "autonomy-robotics",
+      "hq": "Los Angeles",
+      "hints": [
+        "coco",
+        "cocorobotics",
+        "cocodelivery"
+      ],
+      "ats": "greenhouse",
+      "slug": "cocodelivery",
+      "job_count": 0,
+      "sample_title": "",
+      "board_name": "Coco"
+    },
+    {
+      "name": "Machina Labs",
+      "category": "autonomy-robotics",
+      "hq": "Los Angeles",
+      "hints": [
+        "machinalabs",
+        "machina"
+      ],
+      "ats": "lever",
+      "slug": "MachinaLabs",
+      "job_count": 24,
+      "sample_title": "Accounting Manager"
+    },
+    {
+      "name": "Aurora Innovation",
+      "category": "autonomy-robotics",
+      "hq": "Mountain View office",
+      "hints": [
+        "aurora",
+        "aurorainnovation"
+      ],
+      "ats": "greenhouse",
+      "slug": "aurorainnovation",
+      "job_count": 154,
+      "sample_title": "Applied Researcher",
+      "board_name": "Aurora Innovation"
+    },
+    {
+      "name": "Rad AI",
+      "category": "health-wellness",
+      "hq": "San Francisco",
+      "hints": [
+        "radai",
+        "rad-ai"
+      ],
+      "ats": "ashby",
+      "slug": "radai",
+      "job_count": 15,
+      "sample_title": "Implementation Project Manager "
+    },
+    {
+      "name": "Qventus",
+      "category": "health-wellness",
+      "hq": "Mountain View",
+      "hints": [
+        "qventus"
+      ],
+      "ats": "greenhouse",
+      "slug": "qventus",
+      "job_count": 15,
+      "sample_title": "AI Tooling Engineer",
+      "board_name": "Qventus"
+    },
+    {
+      "name": "Commure",
+      "category": "health-wellness",
+      "hq": "Mountain View",
+      "hints": [
+        "commure"
+      ],
+      "ats": "ashby",
+      "slug": "commure",
+      "job_count": 77,
+      "sample_title": "Senior Operations Manager, Revenue"
+    },
+    {
+      "name": "Notable",
+      "category": "health-wellness",
+      "hq": "San Mateo",
+      "hints": [
+        "notable",
+        "notablehealth"
+      ],
+      "ats": "ashby",
+      "slug": "notable",
+      "job_count": 12,
+      "sample_title": "Staff Fullstack Software Engineer"
+    },
+    {
+      "name": "Candid Health",
+      "category": "health-wellness",
+      "hq": "San Francisco",
+      "hints": [
+        "candidhealth",
+        "candid"
+      ],
+      "ats": "ashby",
+      "slug": "candidhealth",
+      "job_count": 36,
+      "sample_title": "Software Engineer (Senior)"
+    },
+    {
+      "name": "Akido Labs",
+      "category": "health-wellness",
+      "hq": "Los Angeles",
+      "hints": [
+        "akido",
+        "akidolabs"
+      ],
+      "ats": "greenhouse",
+      "slug": "akidolabs",
+      "job_count": 18,
+      "sample_title": "Associate Operations Architect | Healthcare Operations",
+      "board_name": "Akido"
+    },
+    {
+      "name": "Atropos Health",
+      "category": "health-wellness",
+      "hq": "Palo Alto",
+      "hints": [
+        "atropos",
+        "atroposhealth"
+      ],
+      "ats": "greenhouse",
+      "slug": "atropos",
+      "job_count": 11,
+      "sample_title": "Aircraft Certification Engineer, UAS Systems",
+      "board_name": "Atropos"
+    },
+    {
+      "name": "Benchling",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "benchling"
+      ],
+      "ats": "ashby",
+      "slug": "benchling",
+      "job_count": 50,
+      "sample_title": "Software Engineer, Full Stack (Study Lifecycle)"
+    },
+    {
+      "name": "Pearl",
+      "category": "ai-vertical",
+      "hq": "Los Angeles",
+      "hints": [
+        "pearl",
+        "hellopearl"
+      ],
+      "ats": "ashby",
+      "slug": "pearl",
+      "job_count": 15,
+      "sample_title": "Senior Frontend Engineer"
+    },
+    {
+      "name": "Metropolis",
+      "category": "ai-vertical",
+      "hq": "Santa Monica (LA)",
+      "hints": [
+        "metropolis",
+        "metropolisio"
+      ],
+      "ats": "greenhouse",
+      "slug": "metropolis",
+      "job_count": 109,
+      "sample_title": "Account Executive",
+      "board_name": "Metropolis"
+    },
+    {
+      "name": "CHAOS Industries",
+      "category": "defense-aero",
+      "hq": "Hawthorne (LA)",
+      "hints": [
+        "chaos",
+        "chaosindustries"
+      ],
+      "ats": "greenhouse",
+      "slug": "chaosindustries",
+      "job_count": 156,
+      "sample_title": "Army Business Development Lead, Air Defense & CUAS ",
+      "board_name": "CHAOS Industries"
+    },
+    {
+      "name": "Mach Industries",
+      "category": "defense-aero",
+      "hq": "Huntington Beach (LA)",
+      "hints": [
+        "mach",
+        "machindustries"
+      ],
+      "ats": "ashby",
+      "slug": "mach",
+      "job_count": 82,
+      "sample_title": "Electrical Engineer"
+    },
+    {
+      "name": "Neros Technologies",
+      "category": "defense-aero",
+      "hq": "El Segundo (LA)",
+      "hints": [
+        "neros",
+        "nerostech"
+      ],
+      "ats": "greenhouse",
+      "slug": "nerostechnologies",
+      "job_count": 57,
+      "sample_title": "Accountant ",
+      "board_name": "Neros Technologies"
+    },
+    {
+      "name": "CX2",
+      "category": "defense-aero",
+      "hq": "El Segundo (LA)",
+      "hints": [
+        "cx2"
+      ],
+      "ats": "lever",
+      "slug": "cx2",
+      "job_count": 7,
+      "sample_title": "Business Development Lead, USMC"
+    },
+    {
+      "name": "Picogrid",
+      "category": "defense-aero",
+      "hq": "El Segundo (LA)",
+      "hints": [
+        "picogrid"
+      ],
+      "ats": "ashby",
+      "slug": "picogrid",
+      "job_count": 20,
+      "sample_title": "Senior Software Engineer"
+    },
+    {
+      "name": "Nominal",
+      "category": "defense-aero",
+      "hq": "Los Angeles",
+      "hints": [
+        "nominal"
+      ],
+      "ats": "lever",
+      "slug": "nominal",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Slingshot Aerospace",
+      "category": "defense-aero",
+      "hq": "El Segundo (LA)",
+      "hints": [
+        "slingshot",
+        "slingshotaerospace"
+      ],
+      "ats": "greenhouse",
+      "slug": "slingshotaerospace",
+      "job_count": 38,
+      "sample_title": "Account Executive, Commercial & Channel",
+      "board_name": "Slingshot Aerospace"
+    },
+    {
+      "name": "True Anomaly",
+      "category": "defense-aero",
+      "hq": "Long Beach (LA)",
+      "hints": [
+        "trueanomaly",
+        "true-anomaly"
+      ],
+      "ats": "greenhouse",
+      "slug": "trueanomalyinc",
+      "job_count": 188,
+      "sample_title": "Accounting & Finance Systems Administrator"
+    },
+    {
+      "name": "Vast",
+      "category": "defense-aero",
+      "hq": "Long Beach (LA)",
+      "hints": [
+        "vast",
+        "vastspace"
+      ],
+      "ats": "ashby",
+      "slug": "vast",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Apex",
+      "category": "defense-aero",
+      "hq": "Los Angeles",
+      "hints": [
+        "apex",
+        "apexspace",
+        "apex-space"
+      ],
+      "ats": "greenhouse",
+      "slug": "apex",
+      "job_count": 0,
+      "sample_title": "",
+      "board_name": "Apex Eye"
+    },
+    {
+      "name": "Inversion Space",
+      "category": "defense-aero",
+      "hq": "Torrance (LA)",
+      "hints": [
+        "inversion",
+        "inversionspace"
+      ],
+      "ats": "greenhouse",
+      "slug": "inversionspace",
+      "job_count": 38,
+      "sample_title": "Avionics Harness Engineer II",
+      "board_name": "Inversion"
+    },
+    {
+      "name": "Skyryse",
+      "category": "defense-aero",
+      "hq": "El Segundo (LA)",
+      "hints": [
+        "skyryse"
+      ],
+      "ats": "greenhouse",
+      "slug": "skyryse",
+      "job_count": 8,
+      "sample_title": "Business Development Lead",
+      "board_name": "Skyryse"
+    },
+    {
+      "name": "Amca",
+      "category": "defense-aero",
+      "hq": "El Segundo (LA)",
+      "hints": [
+        "amca"
+      ],
+      "ats": "greenhouse",
+      "slug": "amca",
+      "job_count": 30,
+      "sample_title": "Compliance Manager",
+      "board_name": "Amca"
+    },
+    {
+      "name": "Radiant",
+      "category": "defense-aero",
+      "hq": "El Segundo (LA)",
+      "hints": [
+        "radiant",
+        "radiantnuclear",
+        "radiantindustries"
+      ],
+      "ats": "ashby",
+      "slug": "radiant",
+      "job_count": 18,
+      "sample_title": "Senior Network Engineer"
+    },
+    {
+      "name": "Divergent Technologies",
+      "category": "defense-aero",
+      "hq": "Torrance (LA)",
+      "hints": [
+        "divergent",
+        "divergent3d"
+      ],
+      "ats": "greenhouse",
+      "slug": "divergent",
+      "job_count": 55,
+      "sample_title": "Additive Manufacturing Technician (1st shift)",
+      "board_name": "Divergent"
+    },
+    {
+      "name": "Gong",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "gong",
+        "gongio"
+      ],
+      "ats": "smartrecruiters",
+      "slug": "gong",
+      "job_count": 9,
+      "sample_title": "writing/journalism internship"
+    },
+    {
+      "name": "Miro",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "miro"
+      ],
+      "ats": "ashby",
+      "slug": "miro",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Motive",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "motive",
+        "gomotive"
+      ],
+      "ats": "greenhouse",
+      "slug": "motive",
+      "job_count": 5,
+      "sample_title": "Account Director (Denver)",
+      "board_name": "Motive"
+    },
+    {
+      "name": "Workato",
+      "category": "enterprise",
+      "hq": "Palo Alto",
+      "hints": [
+        "workato"
+      ],
+      "ats": "greenhouse",
+      "slug": "workato",
+      "job_count": 180,
+      "sample_title": "Account Executive",
+      "board_name": "Workato"
+    },
+    {
+      "name": "Intercom",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "intercom"
+      ],
+      "ats": "greenhouse",
+      "slug": "intercom",
+      "job_count": 150,
+      "sample_title": "Account Executive, Commercial",
+      "board_name": "Fin"
+    },
+    {
+      "name": "6sense",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "6sense"
+      ],
+      "ats": "greenhouse",
+      "slug": "6sense",
+      "job_count": 33,
+      "sample_title": "Business Development Representative - Enterprise",
+      "board_name": "6sense"
+    },
+    {
+      "name": "Lattice",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "lattice"
+      ],
+      "ats": "greenhouse",
+      "slug": "lattice",
+      "job_count": 10,
+      "sample_title": "Account Executive",
+      "board_name": "Lattice"
+    },
+    {
+      "name": "Zip",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "zip",
+        "ziphq"
+      ],
+      "ats": "ashby",
+      "slug": "zip",
+      "job_count": 112,
+      "sample_title": "Senior / Principal Product Manager"
+    },
+    {
+      "name": "MaintainX",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "maintainx",
+        "getmaintainx"
+      ],
+      "ats": "ashby",
+      "slug": "maintainx",
+      "job_count": 196,
+      "sample_title": "Manager, Business Development"
+    },
+    {
+      "name": "Federato",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "federato"
+      ],
+      "ats": "greenhouse",
+      "slug": "federato",
+      "job_count": 19,
+      "sample_title": "Content Marketing Manager",
+      "board_name": "Federato"
+    },
+    {
+      "name": "Medallion",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "medallion"
+      ],
+      "ats": "ashby",
+      "slug": "medallion",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "ThoughtSpot",
+      "category": "enterprise",
+      "hq": "Mountain View",
+      "hints": [
+        "thoughtspot"
+      ],
+      "ats": "unsupported",
+      "slug": "workday:thoughtspot/careers",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Handshake",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "handshake",
+        "joinhandshake"
+      ],
+      "ats": "ashby",
+      "slug": "handshake",
+      "job_count": 118,
+      "sample_title": "Strategic Projects Lead"
+    },
+    {
+      "name": "Faire",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "faire"
+      ],
+      "ats": "greenhouse",
+      "slug": "faire",
+      "job_count": 68,
+      "sample_title": "Account Manager, Fulfillment",
+      "board_name": "Faire"
+    },
+    {
+      "name": "Flexport",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "flexport"
+      ],
+      "ats": "greenhouse",
+      "slug": "flexport",
+      "job_count": 104,
+      "sample_title": "Account Executive, Enterprise",
+      "board_name": "Flexport"
+    },
+    {
+      "name": "Checkr",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "checkr"
+      ],
+      "ats": "greenhouse",
+      "slug": "checkr",
+      "job_count": 55,
+      "sample_title": "Account Director \u2013 Strategic Partnerships",
+      "board_name": "Checkr"
+    },
+    {
+      "name": "Front",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "front",
+        "frontapp"
+      ],
+      "ats": "ashby",
+      "slug": "frontapp",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "CaptivateIQ",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "captivateiq"
+      ],
+      "ats": "lever",
+      "slug": "captivateiq",
+      "job_count": 27,
+      "sample_title": "Alliances Director, Technology Partnerships"
+    },
+    {
+      "name": "Box",
+      "category": "enterprise",
+      "hq": "Redwood City",
+      "hints": [
+        "box"
+      ],
+      "ats": "greenhouse",
+      "slug": "boxinc",
+      "job_count": 133,
+      "sample_title": "Account Executive"
+    },
+    {
+      "name": "Asana",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "asana"
+      ],
+      "ats": "greenhouse",
+      "slug": "asana",
+      "job_count": 133,
+      "sample_title": "Account Executive, New Business (German Speaking)",
+      "board_name": "Asana"
+    },
+    {
+      "name": "DocuSign",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "docusign"
+      ],
+      "ats": "smartrecruiters",
+      "slug": "docusign",
+      "job_count": 4,
+      "sample_title": "Sr Solution Engineer"
+    },
+    {
+      "name": "MongoDB",
+      "category": "enterprise",
+      "hq": "Palo Alto office",
+      "hints": [
+        "mongodb"
+      ],
+      "ats": "greenhouse",
+      "slug": "mongodb",
+      "job_count": 428,
+      "sample_title": "Account Development Representative",
+      "board_name": "MongoDB"
+    },
+    {
+      "name": "Pure Storage",
+      "category": "enterprise",
+      "hq": "Santa Clara",
+      "hints": [
+        "purestorage",
+        "pure-storage"
+      ],
+      "ats": "ashby",
+      "slug": "purestorage",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Nutanix",
+      "category": "enterprise",
+      "hq": "San Jose",
+      "hints": [
+        "nutanix"
+      ],
+      "ats": "unsupported",
+      "slug": "jobvite",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Samsara",
+      "category": "enterprise",
+      "hq": "San Francisco",
+      "hints": [
+        "samsara"
+      ],
+      "ats": "greenhouse",
+      "slug": "samsara",
+      "job_count": 308,
+      "sample_title": "Account Development Representative - DACH",
+      "board_name": "Samsara"
+    },
+    {
+      "name": "Datadog",
+      "category": "enterprise",
+      "hq": "SF office",
+      "hints": [
+        "datadog"
+      ],
+      "ats": "greenhouse",
+      "slug": "datadog",
+      "job_count": 405,
+      "sample_title": "AI Research Engineer - Datadog AI Research (DAIR)",
+      "board_name": "Datadog"
+    },
+    {
+      "name": "Arista Networks",
+      "category": "enterprise",
+      "hq": "Santa Clara",
+      "hints": [
+        "arista",
+        "aristanetworks"
+      ],
+      "ats": "smartrecruiters",
+      "slug": "aristanetworks",
+      "job_count": 258,
+      "sample_title": "Mechanical Design Engineer (Tooling Design Focus)"
+    },
+    {
+      "name": "The Trade Desk",
+      "category": "enterprise",
+      "hq": "Irvine (LA)",
+      "hints": [
+        "thetradedesk"
+      ],
+      "ats": "greenhouse",
+      "slug": "thetradedesk",
+      "job_count": 197,
+      "sample_title": "2026 Australia Software Engineering Internship",
+      "board_name": "The Trade Desk"
+    },
+    {
+      "name": "Substack",
+      "category": "consumer",
+      "hq": "San Francisco",
+      "hints": [
+        "substack",
+        "substackinc"
+      ],
+      "ats": "ashby",
+      "slug": "substack",
+      "job_count": 11,
+      "sample_title": "Product Analyst"
+    },
+    {
+      "name": "Webflow",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "webflow"
+      ],
+      "ats": "greenhouse",
+      "slug": "webflow",
+      "job_count": 21,
+      "sample_title": "Account Executive, EMEA",
+      "board_name": "Webflow"
+    },
+    {
+      "name": "Zapier",
+      "category": "dev-tools",
+      "hq": "SF / Remote",
+      "hints": [
+        "zapier"
+      ],
+      "ats": "ashby",
+      "slug": "zapier",
+      "job_count": 21,
+      "sample_title": "Talent Community Form"
+    },
+    {
+      "name": "GitLab",
+      "category": "dev-tools",
+      "hq": "SF / Remote",
+      "hints": [
+        "gitlab"
+      ],
+      "ats": "greenhouse",
+      "slug": "gitlab",
+      "job_count": 147,
+      "sample_title": "Account Executive - Italy",
+      "board_name": "GitLab"
+    },
+    {
+      "name": "Kong",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "kong",
+        "konghq"
+      ],
+      "ats": "ashby",
+      "slug": "kong",
+      "job_count": 88,
+      "sample_title": "Account Development Representative (Australia)"
+    },
+    {
+      "name": "LaunchDarkly",
+      "category": "dev-tools",
+      "hq": "Oakland",
+      "hints": [
+        "launchdarkly"
+      ],
+      "ats": "ashby",
+      "slug": "launchdarkly",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Harness",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "harness"
+      ],
+      "ats": "greenhouse",
+      "slug": "harnessinc",
+      "job_count": 117,
+      "sample_title": "AppSec Sales Engineer "
+    },
+    {
+      "name": "Algolia",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "algolia"
+      ],
+      "ats": "greenhouse",
+      "slug": "algolia",
+      "job_count": 40,
+      "sample_title": "Commercial Account Executive, DACH",
+      "board_name": "Algolia"
+    },
+    {
+      "name": "Airbyte",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "airbyte"
+      ],
+      "ats": "ashby",
+      "slug": "airbyte",
+      "job_count": 9,
+      "sample_title": "Senior Product Manager \u2013 UI/UX, PLG & Activation"
+    },
+    {
+      "name": "Mux",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "mux"
+      ],
+      "ats": "ashby",
+      "slug": "mux",
+      "job_count": 3,
+      "sample_title": "Staff Platform Engineer"
+    },
+    {
+      "name": "Resend",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "resend"
+      ],
+      "ats": "ashby",
+      "slug": "resend",
+      "job_count": 11,
+      "sample_title": "Account Executive"
+    },
+    {
+      "name": "Infisical",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "infisical"
+      ],
+      "ats": "ashby",
+      "slug": "infisical",
+      "job_count": 9,
+      "sample_title": "Developer Advocate (US & Canada)"
+    },
+    {
+      "name": "HashiCorp",
+      "category": "dev-tools",
+      "hq": "San Francisco",
+      "hints": [
+        "hashicorp"
+      ],
+      "ats": "unsupported",
+      "slug": "ibm-avature",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Netskope",
+      "category": "security",
+      "hq": "Santa Clara",
+      "hints": [
+        "netskope"
+      ],
+      "ats": "greenhouse",
+      "slug": "netskope",
+      "job_count": 115,
+      "sample_title": "AI Consulting Solutions Engineer",
+      "board_name": "Netskope"
+    },
+    {
+      "name": "Verkada",
+      "category": "security",
+      "hq": "San Mateo",
+      "hints": [
+        "verkada"
+      ],
+      "ats": "ashby",
+      "slug": "verkada",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Rubrik",
+      "category": "security",
+      "hq": "Palo Alto",
+      "hints": [
+        "rubrik"
+      ],
+      "ats": "greenhouse",
+      "slug": "rubrik",
+      "job_count": 105,
+      "sample_title": "Account Executive ",
+      "board_name": "Rubrik Job Board"
+    },
+    {
+      "name": "Okta",
+      "category": "security",
+      "hq": "San Francisco",
+      "hints": [
+        "okta"
+      ],
+      "ats": "greenhouse",
+      "slug": "okta",
+      "job_count": 339,
+      "sample_title": "Account Executive, Auth0",
+      "board_name": "Okta"
+    },
+    {
+      "name": "Palo Alto Networks",
+      "category": "security",
+      "hq": "Santa Clara",
+      "hints": [
+        "paloaltonetworks",
+        "palo-alto-networks"
+      ],
+      "ats": "unsupported",
+      "slug": "workday:paloaltonetworks/panwexternalcareers",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Tanium",
+      "category": "security",
+      "hq": "Emeryville",
+      "hints": [
+        "tanium"
+      ],
+      "ats": "greenhouse",
+      "slug": "tanium",
+      "job_count": 60,
+      "sample_title": "Advanced Consulting Engineer",
+      "board_name": "Tanium"
+    },
+    {
+      "name": "Persona",
+      "category": "security",
+      "hq": "San Francisco",
+      "hints": [
+        "persona",
+        "withpersona"
+      ],
+      "ats": "ashby",
+      "slug": "persona",
+      "job_count": 22,
+      "sample_title": "Brand Designer, Web"
+    },
+    {
+      "name": "Cohesity",
+      "category": "security",
+      "hq": "San Jose",
+      "hints": [
+        "cohesity"
+      ],
+      "ats": "greenhouse",
+      "slug": "cohesityuniversityhiring",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Lumos",
+      "category": "security",
+      "hq": "San Francisco",
+      "hints": [
+        "lumos",
+        "lumosidentity"
+      ],
+      "ats": "ashby",
+      "slug": "lumos",
+      "job_count": 14,
+      "sample_title": "Enterprise Account Executive (South Central)"
+    },
+    {
+      "name": "Aurascape",
+      "category": "security",
+      "hq": "Santa Clara",
+      "hints": [
+        "aurascape"
+      ],
+      "ats": "unsupported",
+      "slug": "custom",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Saviynt",
+      "category": "security",
+      "hq": "El Segundo (LA)",
+      "hints": [
+        "saviynt"
+      ],
+      "ats": "lever",
+      "slug": "saviynt",
+      "job_count": 152,
+      "sample_title": "AI Architect"
+    },
+    {
+      "name": "GoGuardian",
+      "category": "enterprise",
+      "hq": "El Segundo (LA)",
+      "hints": [
+        "goguardian"
+      ],
+      "ats": "greenhouse",
+      "slug": "goguardian",
+      "job_count": 9,
+      "sample_title": "Associate Corporate Counsel",
+      "board_name": "GoGuardian"
+    },
+    {
+      "name": "Drata",
+      "category": "security",
+      "hq": "San Diego",
+      "hints": [
+        "drata"
+      ],
+      "ats": "ashby",
+      "slug": "drata",
+      "job_count": 53,
+      "sample_title": "Senior Software Engineer 2"
+    },
+    {
+      "name": "SoFi",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "sofi"
+      ],
+      "ats": "greenhouse",
+      "slug": "sofi",
+      "job_count": 124,
+      "sample_title": "Bank Teller, Golden Pacific Bank, Live Oak",
+      "board_name": "SoFi"
+    },
+    {
+      "name": "Ripple",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "ripple"
+      ],
+      "ats": "greenhouse",
+      "slug": "ripple",
+      "job_count": 128,
+      "sample_title": "Accounting Manager",
+      "board_name": "Ripple "
+    },
+    {
+      "name": "Wealthfront",
+      "category": "fintech",
+      "hq": "Palo Alto",
+      "hints": [
+        "wealthfront"
+      ],
+      "ats": "lever",
+      "slug": "wealthfront",
+      "job_count": 13,
+      "sample_title": "Android Engineer"
+    },
+    {
+      "name": "Airwallex",
+      "category": "fintech",
+      "hq": "SF (US HQ)",
+      "hints": [
+        "airwallex"
+      ],
+      "ats": "ashby",
+      "slug": "airwallex",
+      "job_count": 579,
+      "sample_title": "Relationship Manager (New Business Development), Enterprise Business"
+    },
+    {
+      "name": "Kalshi",
+      "category": "fintech",
+      "hq": "SF office",
+      "hints": [
+        "kalshi"
+      ],
+      "ats": "ashby",
+      "slug": "kalshi",
+      "job_count": 27,
+      "sample_title": "Site Reliability Engineer"
+    },
+    {
+      "name": "Phantom",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "phantom"
+      ],
+      "ats": "ashby",
+      "slug": "phantom",
+      "job_count": 15,
+      "sample_title": "Senior Software Engineer, Frontend"
+    },
+    {
+      "name": "Upgrade",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "upgrade"
+      ],
+      "ats": "greenhouse",
+      "slug": "upgrade",
+      "job_count": 16,
+      "sample_title": "Account Executive, Home Improvement",
+      "board_name": "Upgrade"
+    },
+    {
+      "name": "Synctera",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "synctera"
+      ],
+      "ats": "ashby",
+      "slug": "synctera",
+      "job_count": 2,
+      "sample_title": "Sr. Software Engineer"
+    },
+    {
+      "name": "AtoB",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "atob"
+      ],
+      "ats": "ashby",
+      "slug": "atob",
+      "job_count": 12,
+      "sample_title": "Head of Sales, SMB"
+    },
+    {
+      "name": "Slope",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "slope",
+        "slopepay"
+      ],
+      "ats": "ashby",
+      "slug": "slope",
+      "job_count": 2,
+      "sample_title": "Risk Operations"
+    },
+    {
+      "name": "Middesk",
+      "category": "fintech",
+      "hq": "San Francisco",
+      "hints": [
+        "middesk"
+      ],
+      "ats": "ashby",
+      "slug": "middesk",
+      "job_count": 16,
+      "sample_title": "Software Engineer"
+    },
+    {
+      "name": "Google DeepMind",
+      "category": "big-tech",
+      "hq": "Mountain View",
+      "hints": [
+        "deepmind"
+      ],
+      "ats": "greenhouse",
+      "slug": "deepmind",
+      "job_count": 39,
+      "sample_title": "Director, Engineering, Create",
+      "board_name": "DeepMind"
+    },
+    {
+      "name": "GitHub",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "github"
+      ],
+      "ats": "unsupported",
+      "slug": "icims",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Roku",
+      "category": "big-tech",
+      "hq": "San Jose",
+      "hints": [
+        "roku"
+      ],
+      "ats": "greenhouse",
+      "slug": "roku",
+      "job_count": 244,
+      "sample_title": " Account Executive, Ads Manager ",
+      "board_name": "Roku"
+    },
+    {
+      "name": "Tubi",
+      "category": "big-tech",
+      "hq": "San Francisco",
+      "hints": [
+        "tubi",
+        "tubitv"
+      ],
+      "ats": "greenhouse",
+      "slug": "tubitv",
+      "job_count": 17,
+      "sample_title": "Director, Associate General Counsel, Partnerships and Technology ",
+      "board_name": "Tubi"
+    },
+    {
+      "name": "Unity",
+      "category": "gaming",
+      "hq": "San Francisco",
+      "hints": [
+        "unity",
+        "unity3d",
+        "unitytechnologies"
+      ],
+      "ats": "greenhouse",
+      "slug": "unity3d",
+      "job_count": 202,
+      "sample_title": "Accountant  ",
+      "board_name": "Unity Technologies"
+    },
+    {
+      "name": "Scopely",
+      "category": "gaming",
+      "hq": "Culver City (LA)",
+      "hints": [
+        "scopely"
+      ],
+      "ats": "greenhouse",
+      "slug": "scopely",
+      "job_count": 201,
+      "sample_title": "AI Transformation Lead ",
+      "board_name": "Scopely"
+    },
+    {
+      "name": "Second Dinner",
+      "category": "gaming",
+      "hq": "Irvine (LA)",
+      "hints": [
+        "seconddinner"
+      ],
+      "ats": "ashby",
+      "slug": "seconddinner",
+      "job_count": 2,
+      "sample_title": "Senior Technical Producer II (MARVEL SNAP)"
+    },
+    {
+      "name": "FloQast",
+      "category": "enterprise",
+      "hq": "Los Angeles",
+      "hints": [
+        "floqast"
+      ],
+      "ats": "lever",
+      "slug": "floqast",
+      "job_count": 66,
+      "sample_title": "Account Executive"
+    },
+    {
+      "name": "Boulevard",
+      "category": "enterprise",
+      "hq": "Los Angeles",
+      "hints": [
+        "boulevard",
+        "joinblvd"
+      ],
+      "ats": "greenhouse",
+      "slug": "boulevard",
+      "job_count": 19,
+      "sample_title": "Creative Director",
+      "board_name": "Boulevard"
+    },
+    {
+      "name": "AuditBoard",
+      "category": "enterprise",
+      "hq": "Cerritos (LA)",
+      "hints": [
+        "auditboard"
+      ],
+      "ats": "ashby",
+      "slug": "optro",
+      "job_count": 41,
+      "sample_title": "Sr. Business Intelligence Analyst, Training & Enablement (Remote) (Temp)"
+    },
+    {
+      "name": "Procore",
+      "category": "enterprise",
+      "hq": "Carpinteria",
+      "hints": [
+        "procore"
+      ],
+      "ats": "smartrecruiters",
+      "slug": "ProcoreTechnologies",
+      "job_count": 0,
+      "sample_title": ""
+    },
+    {
+      "name": "Platform Science",
+      "category": "enterprise",
+      "hq": "San Diego",
+      "hints": [
+        "platformscience"
+      ],
+      "ats": "greenhouse",
+      "slug": "platformscience",
+      "job_count": 40,
+      "sample_title": "Accounting Professional ",
+      "board_name": "Platform Science"
+    }
+  ]
+}

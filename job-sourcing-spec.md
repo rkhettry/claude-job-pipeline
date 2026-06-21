@@ -28,23 +28,23 @@ If `config/user.yaml` is missing, halt immediately with `ERROR — missing confi
 
 ## 1. Targeting (what makes the cut)
 
-A job goes in the sheet only if **every** rule below is true. When in doubt, mark `prestige=unsure` and let Raj triage — bias toward a tight, high-quality list rather than recall.
+A job goes in the sheet only if **every** rule below is true. When in doubt, mark `prestige=unsure` and let the user triage — bias toward a tight, high-quality list rather than recall.
 
 - **Role:** SWE / Software Engineer / Software Developer / SDE / Backend / Full-stack / ML Engineer / AI Engineer / Applied AI. **ALSO include FDE-flavored roles** (high-priority for this hunt): Forward Deployed Engineer, Forward Deployed Software Engineer, Deployment Engineer, Implementation Engineer, Solutions Engineer *(only if the JD is engineering-heavy, NOT sales-flavored — Solutions Engineer at some places is pre-sales; read the JD)*, Member of Technical Staff (MTS — Anthropic / OpenAI / Inflection's catch-all SWE title). Known new-grad-friendly FDE programs: **Palantir** (flagship FDE track), **Anduril / Vannevar Labs / Saronic / Castelion** (defense-tech rotational), and occasionally **Decagon / Sierra / Harvey / Glean**. PM/APM is included **only** if it's an exceptional fit (top-tier company AND clearly elite program).
 - **Level — HARD: new-grad only.** **Include:** "new-grad", "entry-level", "university", "2026 grad", "0 years experience", "no prior experience required", "Software Engineer I" / "L3" / "SDE I" at FAANG-equivalent companies (those tiers default to new-grad intake). **DROP if the JD requires 1+ years of post-grad / non-internship experience** — phrases like "1+ years experience", "2+ years", "minimum 1 year of professional experience", "early career (1-2 yrs)", or a "Required Qualifications" section listing any years of full-time SWE experience. Even if the title says "Software Engineer I" or "Early Career", if the JD body asks for ≥1 year non-internship → drop. Internships count as 0 years (i.e. "0 years professional experience" is fine; "0-2 years" is a yellow flag — read the JD to confirm internships qualify). Also drop: senior, staff, principal, manager, lead.
 - **Geo:** California (any city). Other US metros (NYC, Seattle, Austin, Boston, Chicago) **only** if the company is clearly top-tier. Remote-US is OK if comp + company clear the bar.
-- **Visa:** Raj is a US citizen — don't filter on sponsorship.
+- **Visa:** if the user is US work-authorized (see `config/user.yaml` → `identity.us_work_authorized`), don't filter on sponsorship.
 - **Comp floor:** ~$150K base or higher. If comp isn't listed, infer from company tier + Levels.fyi norms; if you can't infer, mark `comp=unknown` and include only if the company is clearly tier-A.
 - **Freshness:** trust the source's stated timestamp. Include rows the source labels **≤3 days old** (widened 2026-06-01 to evaluate lead quality at a broader window).
   - Rows ≤1 day → `freshness=fresh`. Rows 1–3 days → `freshness=recent`. Older → drop unless Tier-A/wedge override applies.
   - **Tier-A/wedge override:** if the source timestamp says >3 days but the company is clearly Tier-A or strong-wedge fit, include it with `freshness=older`. An older posting at a top company is still worth pursuing.
-  - **NO API verification step.** Do NOT call Greenhouse/Lever/Ashby/Workday APIs to cross-check post dates. Removed 2026-06-01 because it caused multi-hour stalls when an API rate-limited or a Chrome extension hiccup happened mid-run. Accept some false-fresh rows in exchange for a pipeline that completes reliably. (Raj sees the company name in triage and can spot obviously-old reposts manually.)
-- **Prestige bar:** must be **strictly better than the user's current offers (Dell SWE new-grad, Capital One EPTech SWE new-grad).** That means one of:
+  - **NO API verification step.** Do NOT call Greenhouse/Lever/Ashby/Workday APIs to cross-check post dates. Removed 2026-06-01 because it caused multi-hour stalls when an API rate-limited or a Chrome extension hiccup happened mid-run. Accept some false-fresh rows in exchange for a pipeline that completes reliably. (you see the company name in triage and can spot obviously-old reposts manually.)
+- **Prestige bar:** must be **strictly better than the user's current offers (see `config/user.yaml` → `prestige.current_offers_floor`).** That means one of:
   - **Tier A** (auto-include): FAANG, Anthropic, OpenAI, Google DeepMind, xAI, Meta GenAI, Apple ML, Microsoft AI; AI unicorns with $1B+ valuation; YC unicorns; Stripe, Ramp, Notion, Figma, Databricks, Snowflake; Vercel, Replit, Cursor/Anysphere, Modal, Sierra, Decagon, Glean, Harvey, Perplexity, Cohere, Scale, Hugging Face, Mistral, AI21.
-  - **Strong wedge fit for Raj** (auto-include): multimodal AI, agentic AI, voice AI, RAG infra, dev tools, healthcare AI, wellness/nutrition AI (his PlateMax + Loop + Dell stack maps onto these directly). See `<REPO_ROOT>/research/findings.md` for the curated wedge list.
+  - **Strong wedge fit** (auto-include): the categories in `config/user.yaml` → `prestige.wedge_categories` (these should map onto the user's own project/experience stack). See `<REPO_ROOT>/research/findings.md` for an optional curated wedge list.
   - **Borderline** → `prestige=unsure`: Series A AI startups with notable founders/investors but low brand recognition. Surface them but flag.
-- **Hard avoids** (always drop, no exceptions): Forward Health, Carbon Health, Olive AI, Cerebral, Innovaccer, Cognition / Windsurf, Pinecone, Sourcegraph, Hippocratic AI, Suki, DeepScribe, Augmedix, Limitless / Rewind, Bee, Mem.ai, Cal AI (standalone), Granola, Whoop (Boston, unless Raj wants to relocate), Tabnine, Adept, Magic.dev, Imbue. Also drop: consulting firms (Accenture, Deloitte, etc.), traditional enterprise IT, defense/intel primes, anything tagged "junior" inside a non-tech-first company (banks, retailers, insurance — unless tier-A like Capital One+, and Capital One is already the floor).
-- **Volume cap:** **soft target ~3–8 new rows per run, quality-first** (hard cap 20). Raj wants a small list of teams actively hiring new grads, not 30 recycled reqs. Prioritize `freshness=fresh` rows, then `older` (active Tier-A/wedge). If you have more than the cap after filtering, keep the best by (freshness: fresh > older) then tier (Tier-A > wedge > unsure). It's totally fine to surface only 1–3 on a slow day — quality over recall.
+- **Hard avoids** (always drop, no exceptions): Forward Health, Carbon Health, Olive AI, Cerebral, Innovaccer, Cognition / Windsurf, Pinecone, Sourcegraph, Hippocratic AI, Suki, DeepScribe, Augmedix, Limitless / Rewind, Bee, Mem.ai, Cal AI (standalone), Granola, Whoop (Boston, unless the user wants to relocate), Tabnine, Adept, Magic.dev, Imbue. Also drop: consulting firms (Accenture, Deloitte, etc.), traditional enterprise IT, defense/intel primes, anything tagged "junior" inside a non-tech-first company (banks, retailers, insurance — unless tier-A, and the user's current-offer floor already covers that case).
+- **Volume cap:** **soft target ~3–8 new rows per run, quality-first** (hard cap 20). The user wants a small list of teams actively hiring new grads, not 30 recycled reqs. Prioritize `freshness=fresh` rows, then `older` (active Tier-A/wedge). If you have more than the cap after filtering, keep the best by (freshness: fresh > older) then tier (Tier-A > wedge > unsure). It's totally fine to surface only 1–3 on a slow day — quality over recall.
 
 ---
 
@@ -132,7 +132,7 @@ High-signal founder-posted hiring thread, refreshed on the 1st of every month. B
 
 **This step is DISABLED.** Do not call any ATS API (Greenhouse, Lever, Ashby, Workday, amazon.jobs) to cross-check dates. The verification loop caused multi-hour stalls when an API rate-limited or the Chrome extension hiccuped mid-run.
 
-Trust the source's stated `X hours/days ago` timestamp per §1. If a row turns out to be an old repost, Raj catches it manually during triage — the cost of one bad row in the digest is much lower than the cost of the whole pipeline hanging.
+Trust the source's stated `X hours/days ago` timestamp per §1. If a row turns out to be an old repost, the user catches it manually during triage — the cost of one bad row in the digest is much lower than the cost of the whole pipeline hanging.
 
 If this section ever needs to be re-enabled, restore from git history and add a hard per-API timeout (e.g., 10s) and a max-total-budget for the verification phase (e.g., 5 minutes), then bail with `unverified` on timeout rather than retrying forever.
 
@@ -167,8 +167,8 @@ Columns, in order:
 | 10 | `apply_url` | str | direct apply URL (NOT the source page) |
 | 11 | `tier` | str | `A` / `wedge` / `unsure` |
 | 12 | `reasoning` | str | 1 line: why this passed the prestige bar (e.g. "Anthropic — auto-include tier-A") |
-| 13 | `decision` | str | always `pending` on insert. Raj edits to `yes` / `no` / `maybe`. |
-| 14 | `applied_date` | YYYY-MM-DD or empty | Raj fills when applied |
+| 13 | `decision` | str | always `pending` on insert. The user edits to `yes` / `no` / `maybe`. |
+| 14 | `applied_date` | YYYY-MM-DD or empty | the user fills when applied |
 | 15 | `resume_version` | str | path to tailored resume folder if applicable, else empty |
 | 16 | `notes` | str | freeform; any per-row caveats (e.g. "salary band from jobright minisite — verify on apply page") |
 
@@ -197,22 +197,22 @@ If the file doesn't exist when the task runs, **create it** with these headers i
 8. **Apply volume cap** (≤20 hard, ~10 soft preference).
 9. **Append surviving rows to `jobs.xlsx`** with `decision=pending`.
 10. **Send the daily digest email** per §6 (include the JD-verification counters in the body).
-11. **Print a 1-paragraph summary to the run log** so Raj sees it as a notification: total scanned per source, total kept, JD-verification counters, list of company names added.
+11. **Print a 1-paragraph summary to the run log** so the user sees it as a notification: total scanned per source, total kept, JD-verification counters, list of company names added.
 
-If zero new rows survive, still send the email (subject "No new jobs today, here's why") with a one-paragraph note on what was scanned + filter counts, so Raj knows the pipeline ran.
+If zero new rows survive, still send the email (subject "No new jobs today, here's why") with a one-paragraph note on what was scanned + filter counts, so the user knows the pipeline ran.
 
 ---
 
 ## 6. Daily digest email
 
-**To:** <your-email> (Raj emails himself from his own Gmail)
+**To:** <your-email> (the user emails themselves from their own Gmail)
 **From:** <your-email> (his logged-in session)
 **Subject:** `Daily jobs digest — YYYY-MM-DD — N new` (e.g. `Daily jobs digest — 2026-05-28 — 4 new`)
 
 **Body (HTML, simple):**
 
 ```
-Hey Raj — daily sourcing pass complete.
+Hey the user — daily sourcing pass complete.
 
 NEW JOBS ADDED (N):
 
@@ -231,7 +231,7 @@ Spec: <REPO_ROOT>/automation/job-sourcing-spec.md
 
 If `N == 0`, body is:
 ```
-Hey Raj — daily sourcing pass complete. No new jobs cleared the bar today.
+Hey the user — daily sourcing pass complete. No new jobs cleared the bar today.
 
 Scanned: Simplify (X candidates → Y after filters), jobright (X → Y),
 newgrad-jobs / jobright-minisite (X → Y), HN Who's Hiring (X → Y).
@@ -278,12 +278,12 @@ Gmail's compose body is a `contenteditable` div, NOT a textarea. Naive typing to
 
 - **Source down / fetch fails:** log it, skip that source, continue with the others. Don't block the whole run on one source.
 - **Token-limit on raw README:** save to disk, grep + read in chunks (this is normal, not an error).
-- **xlsx locked (file open in Excel):** log it, write to `jobs-pending-merge-YYYY-MM-DD.xlsx` instead, and mention in the email digest that Raj should close Excel + merge manually.
+- **xlsx locked (file open in Excel):** log it, write to `jobs-pending-merge-YYYY-MM-DD.xlsx` instead, and mention in the email digest that the user should close Excel + merge manually.
 - **No new rows:** still send the email (per §6).
 
 ---
 
-## 8. Things Raj may want to tweak over time
+## 8. Things the user may want to tweak over time
 
 These are the dials. Search-replace these strings if you want to change behavior without rewriting the spec:
 

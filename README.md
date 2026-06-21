@@ -1,6 +1,6 @@
 # claude-job-pipeline
 
-A daily AI-powered job-hunt pipeline you run on your own Mac. **Claude Code** scrapes the four major new-grad SWE job sources every day at noon, drops candidates into a spreadsheet, lets you triage them through a tiny local web UI, and — when you say ✓ Yes — spawns a fresh Claude Code session that tailors a 1-page LaTeX resume for that specific role.
+A daily AI-powered job-hunt pipeline you run on your own Mac. Every day at noon it (1) polls **hundreds of company job boards directly** via their public ATS APIs for fresh new-grad roles, then (2) has **Claude Code** scrape the major new-grad SWE aggregators, drops candidates into a spreadsheet, emails you a digest, lets you triage through a tiny local web UI, and — when you say ✓ Yes — spawns a fresh Claude Code session that tailors a 1-page LaTeX resume for that specific role. A live viewer streams every Claude run in real time.
 
 Built on top of [Claude Code](https://claude.ai/code), [Claude in Chrome](https://claude.ai/chrome) (MCP browser tooling), and macOS `launchd`.
 
@@ -30,11 +30,17 @@ Built on top of [Claude Code](https://claude.ai/code), [Claude in Chrome](https:
 
 | Path | Purpose |
 |---|---|
-| `triage_server.py` | Localhost Python web UI (port 8765). Two pages: `/` for triaging the spreadsheet, `/runs` for an n8n-style live view of the daily sourcing pipeline. |
+| `triage_server.py` | Localhost Python web UI (port 8765). Two pages: `/` for triaging the spreadsheet, `/runs` for a 📡 live viewer that streams **every** Claude run (sourcing, tailor, outreach, verify-date) in real time. |
+| `watchlist_poller.py` | Polls hundreds of company job boards directly via their public ATS APIs (Greenhouse / Lever / Ashby / SmartRecruiters) for fresh, explicitly-new-grad roles. Pure Python, no Claude tokens, ~60s. Runs first each day so its hits land before the Claude aggregator pass. |
+| `watchlist_discover.py` | One-time helper that resolves each company in `config/watchlist.json` to its ATS + board slug. Run it after editing the watchlist. |
+| `config/watchlist.json` | The company watchlist (name → ATS + slug). Ships with a large curated starter list; edit it to match the companies you'd actually take an offer from. |
+| `send_digest.py` | Emails the daily digest via Gmail SMTP — fully headless, **no Chrome needed**. Reads `config/smtp.json` (gitignored). |
+| `config/smtp.example.json` | Template for SMTP credentials. Copy to `config/smtp.json` and add a Gmail App Password. |
+| `config/user.example.yaml` | Single source of truth for your identity, job preferences, prestige bar, and resume settings. Copy to `config/user.yaml` and fill in. |
 | `prompts/daily-sourcing.txt` | Thin prompt the cron feeds into `claude`. Just says "follow `job-sourcing-spec.md`." Don't edit to change behavior — edit the spec. |
-| `scripts/launch_daily_sourcing.sh` | Bash + AppleScript wrapper. Kills lingering claude zombies, opens Terminal.app, runs Claude Code with the prompt as a CLI arg. |
+| `scripts/launch_daily_sourcing.sh` | Bash + AppleScript wrapper. Runs the watchlist poll, opens Terminal.app, runs Claude Code, then emails the digest via SMTP. |
 | `launchd/daily-sourcing.plist.template` | macOS LaunchAgent — fires the launcher daily at 12:00 local time. Fill in placeholders before installing. |
-| `job-sourcing-spec.md` | Source of truth for the daily sourcing pass. Targeting rules, sources (SimplifyJobs, jobright-ai, jobright minisite, LinkedIn), dedup logic, digest email. **Customize this for your hunt** (see "Customizing" below). |
+| `job-sourcing-spec.md` | Source of truth for the Claude aggregator pass. Targeting rules, sources (SimplifyJobs, jobright-ai repo + minisite, Hacker News "Who's hiring"), dedup logic, digest. **Customize this for your hunt** (see "Customizing" below). |
 | `resume-tailoring-spec.md` | Source of truth for the tailoring pass. 1-page quality rules, the "perfect-fit dial" (JD keyword extraction + honest re-framing), and the visual-verification loop. **Customize for your roles + killer metrics.** |
 
 ## Prerequisites
@@ -44,6 +50,7 @@ Built on top of [Claude Code](https://claude.ai/code), [Claude in Chrome](https:
 - **Claude in Chrome extension** + a logged-in Chrome session for LinkedIn and Gmail. Install: <https://claude.ai/chrome>. The spec uses `mcp__Claude_in_Chrome__*` tools to drive the browser sources.
 - **Python 3** with `openpyxl` (auto-installed on first run of `triage_server.py`).
 - **LaTeX** — required by the resume-tailoring half. Install MacTeX or BasicTeX, or use `tectonic` as a drop-in alternative.
+- **A Gmail App Password** (optional but recommended) — for the headless SMTP digest email. Generate one at <https://myaccount.google.com/apppasswords> (requires 2-Step Verification), then `cp config/smtp.example.json config/smtp.json` and fill it in. Without this, the digest is still written to `digest-YYYY-MM-DD.md` each run; you just won't get the email.
 
 ## Install
 
@@ -89,7 +96,7 @@ python3 triage_server.py
 # then open http://localhost:8765/runs
 ```
 
-You'll see a pipeline diagram (Pre-flight → SimplifyJobs → jobright-ai repo → jobright minisite → LinkedIn → Filter → Dedupe → Append → Email → DONE) with the current stage pulsing.
+You'll see the run appear in the 📡 live viewer's sidebar with a pulsing **LIVE** badge; click it to stream Claude's reasoning, every tool call, every Chrome page it opens, and the final summary as they happen.
 
 ## Daily workflow
 
@@ -155,9 +162,24 @@ The high-value spots to edit:
 
 Don't edit `prompts/daily-sourcing.txt` to change targeting behavior — it's intentionally thin. Edit the spec.
 
-## Live pipeline view
+## Watchlist (direct-from-ATS sourcing)
 
-`http://localhost:8765/runs` shows the sourcing run as a 10-node n8n-style diagram with the active step pulsing and a live log tail underneath (auto-scrolling, refreshes every 2.5s). Use it during/after the noon run to see exactly where Claude is, what tool it's calling, and whether it got stuck.
+`config/watchlist.json` is a list of companies you'd actually take an offer from. Each day `watchlist_poller.py` hits each company's public job-board API directly (Greenhouse / Lever / Ashby / SmartRecruiters — the same feed the careers page renders), filters for **explicitly** new-grad software roles posted in the **last 2 days**, and appends fresh hits straight into `jobs.xlsx`. This catches roles the hour they go live — often before the aggregators have them.
+
+To customize:
+1. Edit `config/watchlist.json` — add/remove companies (name + `hints` slug guesses).
+2. Run `python3 watchlist_discover.py` to resolve each company's ATS + board slug.
+3. `python3 watchlist_poller.py --test` to preview matches without writing anything.
+
+It's deliberately strict: a role only lands in the sheet if the title or JD literally says new grad / entry level / 0–1 years and it's CA-or-US-remote and freshly posted. Quiet days are expected — explicit new-grad reqs cluster around fall recruiting.
+
+## Daily digest email (SMTP)
+
+After each run, `send_digest.py` emails you the digest via Gmail SMTP — no Chrome required, works fully headless. The sourcing run always writes `digest-YYYY-MM-DD.md`; the SMTP step sends it. Set it up once: `cp config/smtp.example.json config/smtp.json` and add a Gmail [App Password](https://myaccount.google.com/apppasswords). Recipient comes from `config/user.yaml` → `digest_email`.
+
+## Live run viewer
+
+`http://localhost:8765/runs` (the 📡 button in the triage top bar) lists **every** Claude run from the last 48h — sourcing, resume tailors, outreach, verify-date — each with a pulsing **LIVE** badge while running. Click one to watch a console-style feed that updates every 2s: Claude's reasoning, every command and Chrome page it opens, tool results, and a final summary card with duration + cost. This works because every spawn runs with `--output-format stream-json`, so the log fills in event-by-event as the run happens (not buffered until the end).
 
 ## Operational tips
 
@@ -172,8 +194,8 @@ Don't edit `prompts/daily-sourcing.txt` to change targeting behavior — it's in
 
 - All scraping runs in **your** local Chrome via Claude in Chrome — your existing LinkedIn / Gmail sessions, not credentials we ever see.
 - The triage server binds to `127.0.0.1` only (not network-exposed).
-- `jobs.xlsx`, `logs/`, `versions/`, and your resume materials are `.gitignore`d. **Don't commit them.**
-- No secrets are read from disk by any script in this repo. If you fork and add a CI / hosted variant, you're on your own for secret handling.
+- `jobs.xlsx`, `logs/`, `versions/`, `digest-*.md`, `config/user.yaml`, `config/smtp.json`, and your resume materials are all `.gitignore`d. **Don't commit them.**
+- The one secret on disk is `config/smtp.json` (your Gmail App Password). It's gitignored, used only by `send_digest.py` to send mail to yourself, and revocable anytime from your Google account. Never commit it. An App Password is not your Google login password and only grants mail-send.
 
 ## Acknowledgments
 

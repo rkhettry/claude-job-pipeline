@@ -9,6 +9,9 @@ outreach/*.json
 # Per-user config — buyer creates from .example.yaml
 config/user.yaml
 
+# SMTP credentials (Gmail app password) — buyer creates from .example.json
+config/smtp.json
+
 # Per-user resume content — buyer creates from .example.tex
 master/*.tex
 !master/*.example.tex

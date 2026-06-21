@@ -16,7 +16,7 @@ Follow the spec exactly:
 - Prestige bar from config: use `prestige.tier_a_companies`, `prestige.wedge_categories`, `prestige.hard_avoid`, and `prestige.current_offers_floor`.
 - Append new rows to <REPO_ROOT>/automation/jobs.xlsx (sheet "jobs"), dedupe by canonical apply URL.
 - Soft cap ~10 new rows, hard cap 20.
-- After writing the sheet, send the digest email to `digest_email` (from config) via Claude in Chrome → Gmail web compose. Subject: "Daily jobs digest — YYYY-MM-DD — N new". Include JD-verification counters in the body.
+- After writing the sheet, ALWAYS write the digest to `automation/digest-YYYY-MM-DD.md` (today's date). The FIRST line must be the heading `# Daily jobs digest — YYYY-MM-DD — N new`. Include the new jobs (with apply URLs), the JD-verification counters, what was scanned, and top filter drops. Do NOT send email yourself and do NOT open Gmail or Chrome for sending — a separate headless SMTP step (send_digest.py) emails this markdown file automatically right after you exit. Writing the .md file IS the deliverable; double-sending is a bug.
 - If a source is stale or blocked, log it and continue — do not fail the whole run.
 
 When finished, print a one-line summary: "DONE — added N rows, skipped M dupes, jd_verified=N, jd_dropped_1plus_yrs=N, jd_dropped_specialist=N, sources OK: [...]". Then exit.

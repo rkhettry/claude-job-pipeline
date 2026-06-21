@@ -74,15 +74,30 @@ cd master && tectonic resume.tex && open resume.pdf
 
 If the PDF looks like a clean one-pager, you're good.
 
-### 4. Run the triage server
+### 4. Set up the digest email (SMTP)
+
+The daily digest emails itself to you via Gmail SMTP — no Chrome needed. Set it up once:
+
+```bash
+cp config/smtp.example.json config/smtp.json
+$EDITOR config/smtp.json
+```
+
+Fill in `sender_email` (your Gmail) and `app_password` — a Gmail **App Password**, NOT your login password. Generate at [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords) (requires 2-Step Verification on). The recipient is `digest_email` from `config/user.yaml`. Skip this and you'll still get `digest-YYYY-MM-DD.md` written each run — just no email.
+
+### 5. (Optional) Customize the company watchlist
+
+`config/watchlist.json` ships with a large curated company list that polls each board directly for fresh new-grad roles. To make it yours: edit the list, then `python3 automation/watchlist_discover.py` to resolve each board. The starter list works out of the box.
+
+### 6. Run the triage server
 
 ```bash
 python3 automation/triage_server.py
 ```
 
-Opens at [http://localhost:8765](http://localhost:8765). You should see an empty triage UI (no jobs sourced yet).
+Opens at [http://localhost:8765](http://localhost:8765). You should see an empty triage UI (no jobs sourced yet). The 📡 **Live** button in the top bar opens the run viewer that streams every Claude run.
 
-### 5. Test end-to-end
+### 7. Test end-to-end
 
 In the triage UI:
 1. Click **+ Add JD** in the top right
@@ -105,7 +120,9 @@ Edit `scripts/launch_daily_sourcing.sh` to point at your repo path, then install
 - **`automation/outreach-lead-finder-spec.md`** → tells Claude how to find LinkedIn recruiters at the target company.
 - **`automation/outreach-sender-spec.md`** → tells Claude how to send messages to approved leads.
 - **`automation/verify-date-spec.md`** → tells Claude how to verify the actual posted date of a job.
-- **`automation/triage_server.py`** → the local web UI you use to triage jobs + trigger tailoring + manage outreach.
+- **`automation/watchlist_poller.py`** + **`config/watchlist.json`** → polls company job boards directly (no Claude) for fresh new-grad roles, runs first each day.
+- **`automation/send_digest.py`** + **`config/smtp.json`** → emails you the daily digest via SMTP, headless.
+- **`automation/triage_server.py`** → the local web UI you use to triage jobs + trigger tailoring + manage outreach, plus the 📡 live run viewer at `/runs`.
 
 Edit `config/user.yaml` when your preferences change. Edit `master/resume.tex` when your work history changes. You almost never need to edit the specs — the specs read from your config.
 

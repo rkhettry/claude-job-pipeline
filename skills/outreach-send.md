@@ -11,7 +11,7 @@ Run the outreach sender for the job_id in `$ARGUMENTS`. If no job_id is given, a
 
 Sidecar JSON path: `<REPO_ROOT>/automation/outreach/<JOB_ID>.json`. Read it, send to every lead where `approved == true` AND `send_status` is `pending` (or `failed` for retries).
 
-Use Chrome MCP (Raj is authenticated on LinkedIn). Per-lead flow:
+Use Chrome MCP (the user is authenticated on LinkedIn). Per-lead flow:
 - 1st-degree: direct DM via Message button
 - 2nd-degree: Connect → Add a note → paste message → Send invitation
 - 3rd+ degree: skip (mark `send_status: skipped`)

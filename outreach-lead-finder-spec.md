@@ -11,7 +11,7 @@ You are an autonomous agent finding recruiters / founders / engineers at a speci
 
 If `config/user.yaml` is missing, halt with `ERROR — missing config/user.yaml`.
 
-Wherever this spec says "Raj" or "the user's connections" or similar, substitute the values from user.yaml.
+Wherever this spec says "the user" or "the user's connections" or similar, substitute the values from user.yaml.
 
 ## Inputs (passed to you via prompt)
 
@@ -168,7 +168,7 @@ For founder / engineer leads:
    - The role you're applying to has a concrete team/product name (from the JD), AND the lead works on that team. Use ` Big fan of {company}'s work on {team_or_product}.`
    - As a fallback when you want flow but have nothing concrete: ` Big fan of what you're building.` (founder) or ` Big fan of {company}'s product.` (engineer). Use SPARINGLY.
 
-3. **NEVER fill `{context}` with a guessed/inferred topic.** If `{brief_reason}` from §1 step 3 was a marketing-tagline guess like "live governance" or "AI-native deployment", don't use it. That's the spammy pattern Raj specifically called out. The fact that you computed `brief_reason` is not license to use it.
+3. **NEVER fill `{context}` with a guessed/inferred topic.** If `{brief_reason}` from §1 step 3 was a marketing-tagline guess like "live governance" or "AI-native deployment", don't use it. That's the spammy pattern the user specifically called out. The fact that you computed `brief_reason` is not license to use it.
 
 ### Length + style rules
 
@@ -187,7 +187,7 @@ Set `approved` to:
 - `false` — if `connection_degree == "3rd+"` (low signal, costs a note)
 - `null` — everything else (user must review)
 
-Raj will see all of these in the modal and toggle yes/no.
+The user will see all of these in the modal and toggle yes/no.
 
 ## §6 Write the sidecar JSON
 
